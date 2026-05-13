@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,750&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory text-charcoal font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-normal;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-royalGold;
+  }
+}
+
+@layer components {
+  .container-pad {
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-pad {
+    @apply py-16 md:py-24;
+  }
+
+  .eyebrow {
+    @apply text-xs font-extrabold uppercase tracking-[0.18em] text-royalGold;
+  }
+
+  .premium-card {
+    @apply rounded-2xl border border-royalGreen/10 bg-ivory shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-premium;
+  }
+
+  .dark-card {
+    @apply rounded-2xl border border-white/10 bg-royalGreen text-ivory shadow-premium;
+  }
+
+  .btn-royal {
+    @apply btn border-0 bg-royalGold text-charcoal hover:bg-sunset hover:text-ivory;
+  }
+
+  .btn-outline-royal {
+    @apply btn border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory;
+  }
+
+  .form-field {
+    @apply input input-bordered w-full border-royalGreen/20 bg-white focus:border-royalGold;
+  }
+
+  .form-select {
+    @apply select select-bordered w-full border-royalGreen/20 bg-white focus:border-royalGold;
+  }
+
+  .form-area {
+    @apply textarea textarea-bordered w-full border-royalGreen/20 bg-white focus:border-royalGold;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(90deg, rgba(18, 55, 42, 0.92), rgba(18, 55, 42, 0.56), rgba(18, 55, 42, 0.14));
+  }
+
+  .glass-panel {
+    @apply border border-white/20 bg-white/10 shadow-premium backdrop-blur-md;
+  }
+
+  .admin-table th {
+    @apply bg-warmSand/70 text-xs uppercase tracking-wider text-royalGreen;
+  }
+
+  .admin-table td,
+  .admin-table th {
+    @apply whitespace-nowrap px-4 py-3 align-top;
+  }
+
+  .sticky-bottom-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
