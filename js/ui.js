@@ -78,12 +78,12 @@ export function renderNavbar() {
   const currency = getCurrency();
   const language = getLanguage();
   target.innerHTML = `
-    <div class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/96 text-ivory shadow-lg backdrop-blur">
+    <div class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/95 text-ivory shadow-lg backdrop-blur">
       <div class="container-pad">
         <div class="navbar min-h-[76px] px-0">
           <div class="navbar-start gap-3">
-            <button class="btn btn-ghost px-2 text-ivory lg:hidden" id="mobile-menu-toggle" aria-label="Open menu">
-              <span class="text-2xl leading-none">Menu</span>
+            <button class="btn btn-ghost px-2 text-ivory lg:hidden" id="mobile-menu-toggle" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-menu">
+              <span class="text-lg font-bold leading-none">Menu</span>
             </button>
             <a href="index.html" class="flex items-center gap-3">
               <span class="grid h-12 w-12 place-items-center rounded-full border border-royalGold/50 bg-ivory text-lg font-black text-royalGreen">RH</span>
@@ -95,6 +95,7 @@ export function renderNavbar() {
           </div>
           <nav class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal items-center gap-1 px-1 text-sm font-bold">
+              <li><a class="${activeClass("index.html")}" href="index.html">Home</a></li>
               <li class="dropdown dropdown-hover">
                 <button class="${activeClass("kilimanjaro.html")}">Services</button>
                 <ul class="dropdown-content menu z-[60] mt-3 w-72 rounded-box bg-ivory p-3 text-charcoal shadow-premium">
@@ -104,10 +105,13 @@ export function renderNavbar() {
                   <li><a href="day-trips.html">Day Trips</a></li>
                 </ul>
               </li>
+              <li><a class="${activeClass("destinations.html")}" href="destinations.html">Destinations</a></li>
               <li><a class="${activeClass("blog.html")}" href="blog.html">Blogs</a></li>
               <li><a class="${activeClass("about.html")}" href="about.html">About Us</a></li>
               <li><a class="${activeClass("contact.html")}" href="contact.html">Contact</a></li>
               <li><a class="${activeClass("connect-expert.html")}" href="connect-expert.html">Connect to Our Expert</a></li>
+              <li><a class="${activeClass("client-portal.html")}" href="client-portal.html">Client Portal</a></li>
+              <li><a class="${activeClass("admin.html")}" href="admin.html">Admin</a></li>
             </ul>
           </nav>
           <div class="navbar-end hidden gap-2 lg:flex">
@@ -117,11 +121,12 @@ export function renderNavbar() {
             <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">
               ${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}
             </select>
-            <a href="booking.html" class="btn-royal btn-sm">Book Now</a>
+            <a href="booking.html" class="btn-royal btn-sm">Plan My Adventure</a>
           </div>
         </div>
         <div id="mobile-menu" class="hidden border-t border-white/10 py-4 lg:hidden">
           <div class="grid gap-2 text-sm font-bold">
+            <a href="index.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Home</a>
             <a href="kilimanjaro.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Kilimanjaro Climbs</a>
             <a href="safaris.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Signature Tanzania Safaris</a>
             <a href="reasons-to-trust-us.html#signature-experience" class="rounded-xl px-3 py-3 hover:bg-white/10">Signature Royal Experience</a>
@@ -131,6 +136,9 @@ export function renderNavbar() {
             <a href="about.html" class="rounded-xl px-3 py-3 hover:bg-white/10">About Us</a>
             <a href="contact.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Contact</a>
             <a href="connect-expert.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Connect to Our Expert</a>
+            <a href="client-portal.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Client Portal</a>
+            <a href="admin.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Admin</a>
+            <a href="booking.html" class="btn-royal mt-2">Book Now</a>
             <div class="grid grid-cols-2 gap-3 px-3 pt-2">
               <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">
                 ${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}
@@ -145,9 +153,19 @@ export function renderNavbar() {
     </div>
   `;
 
-  document.getElementById("mobile-menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
+  document.getElementById("mobile-menu-toggle")?.addEventListener("click", (event) => {
+    const menu = document.getElementById("mobile-menu");
+    const isHidden = menu?.classList.toggle("hidden");
+    event.currentTarget.setAttribute("aria-expanded", String(!isHidden));
+    document.body.classList.toggle("overflow-hidden", !isHidden);
   });
+  document.querySelectorAll("#mobile-menu a").forEach((link) =>
+    link.addEventListener("click", () => {
+      document.getElementById("mobile-menu")?.classList.add("hidden");
+      document.getElementById("mobile-menu-toggle")?.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("overflow-hidden");
+    })
+  );
   bindPreferenceSwitches();
 }
 
