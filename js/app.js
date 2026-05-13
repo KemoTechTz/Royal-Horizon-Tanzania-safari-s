@@ -89,7 +89,7 @@ function renderHome(root) {
               <p class="mt-6 max-w-2xl text-base leading-8 text-ivory/90 md:text-xl">${escapeHtml(slide.text)}</p>
               <div class="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="${slide.primary.href}" class="btn-royal">${escapeHtml(slide.primary.label)}</a>
-                <a href="${slide.secondary.href}" class="btn border-white/40 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">${escapeHtml(slide.secondary.label)}</a>
+                <a href="${slide.secondary.href}" class="btn-ghost-royal">${escapeHtml(slide.secondary.label)}</a>
               </div>
               <div class="mt-10 flex flex-wrap gap-3">
                 ${["Locally Owned", "Direct Booking", "No Middlemen", "Group & Private Tours", "Transparent Pricing"]
@@ -101,7 +101,7 @@ function renderHome(root) {
         </article>`
         )
         .join("")}
-      <div class="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-3">
+      <div class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-3">
         ${heroSlides.map((_, index) => `<button data-slide-dot class="h-3 w-10 rounded-full ${index === 0 ? "bg-royalGold" : "bg-white/40"}" aria-label="Slide ${index + 1}"></button>`).join("")}
       </div>
       <button data-prev-slide class="btn btn-circle absolute left-4 top-1/2 z-10 hidden border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen md:flex">Prev</button>
