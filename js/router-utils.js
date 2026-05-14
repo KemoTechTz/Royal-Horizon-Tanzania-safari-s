@@ -3,7 +3,7 @@ export function getParam(name, fallback = "") {
 }
 
 export function setPageTitle(title) {
-  document.title = title ? `${title} | Royal Horizon Tours` : "Royal Horizon Tours";
+  document.title = title ? `${title} | Royal Horizon Tours` : "Royal Horizon Tours | Kilimanjaro Climbs, Tanzania Safaris & Day Trips";
 }
 
 export function safeText(value, fallback = "") {
