@@ -83,7 +83,7 @@ export function renderNavbar() {
       <div class="flex min-h-[68px] items-center justify-between gap-3 lg:min-h-[74px]">
         <a href="index.html" class="flex items-center gap-2.5">
           <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-royalGold/50 bg-ivory text-sm font-black text-royalGreen lg:h-11 lg:w-11">RH</span>
-          <span class="text-[15px] font-semibold leading-tight sm:text-base">Royal Horizon <span class="hidden sm:inline">Tours</span></span>
+          <span class="font-ui text-[15px] font-semibold leading-tight sm:text-base">Royal Horizon <span class="hidden sm:inline">Tours</span></span>
         </a>
         <div class="flex items-center gap-2 lg:hidden">
           <a href="booking.html" class="btn-royal btn-sm rounded-xl px-3">Book</a>
@@ -94,7 +94,7 @@ export function renderNavbar() {
 
         <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:pl-8">
           <nav>
-            <ul class="menu menu-horizontal gap-1 px-0 text-[15px] font-semibold">
+            <ul class="menu menu-horizontal gap-1 px-0 font-ui text-[15px] font-semibold tracking-normal">
               <li><a class="${activeClass("index.html")}" href="index.html">Home</a></li>
               <li class="dropdown dropdown-hover dropdown-bottom"><button class="${activeClass("kilimanjaro.html")}">Services</button><ul class="dropdown-content menu z-[70] mt-3 w-72 rounded-2xl border border-royalGreen/10 bg-ivory p-2 text-charcoal shadow-premium"><li><a href="kilimanjaro.html">Climb Kilimanjaro</a></li><li><a href="safaris.html">Signature Tanzania Safaris</a></li><li><a href="reasons-to-trust-us.html#signature-experience">Signature Royal Experience</a></li><li><a href="day-trips.html">Day Trips</a></li></ul></li>
               <li><a class="${activeClass("destinations.html")}" href="destinations.html">Destinations</a></li>
@@ -116,7 +116,7 @@ export function renderNavbar() {
   <div id="mobile-drawer-backdrop" class="fixed inset-0 z-[60] hidden bg-charcoal/50 lg:hidden"></div>
   <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto custom-scrollbar bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
     <div class="flex items-center justify-between border-b border-white/15 pb-4"><p class="text-lg font-semibold">Royal Horizon Tours</p><button id="mobile-menu-close" class="btn btn-ghost btn-sm text-ivory" aria-label="Close navigation menu">✕</button></div>
-    <nav class="mt-5 grid gap-1 text-lg">
+    <nav class="mt-5 grid gap-1 font-ui text-lg font-semibold">
       ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Client Portal','client-portal.html'],['Admin','admin.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
       <details class="mt-1 rounded-xl border border-white/15 px-3 py-2"><summary class="cursor-pointer text-base font-semibold">Services</summary><div class="mt-2 grid gap-2 text-base"><a href="kilimanjaro.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Climb Kilimanjaro</a><a href="safaris.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Tanzania Safaris</a><a href="reasons-to-trust-us.html#signature-experience" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Royal Experience</a><a href="day-trips.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Day Trips</a></div></details>
     </nav>
@@ -332,7 +332,7 @@ export function sectionHeader(eyebrow, title, text = "") {
   return `
     <div class="mb-10 max-w-3xl">
       <p class="eyebrow">${escapeHtml(eyebrow)}</p>
-      <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen md:text-5xl">${escapeHtml(title)}</h2>
+      <h2 class="mt-3 font-heading text-3xl font-bold leading-tight text-royalGreen md:text-4xl lg:text-5xl">${escapeHtml(title)}</h2>
       ${text ? `<p class="mt-4 text-lg leading-8 text-charcoal/70">${escapeHtml(text)}</p>` : ""}
     </div>
   `;

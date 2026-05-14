@@ -5,22 +5,58 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Manrope', sans-serif;
+  }
+
   html {
     scroll-behavior: smooth;
     scrollbar-width: thin;
     scrollbar-color: #C9A14A #12372A;
+    font-family: var(--font-body);
   }
 
   body {
-    @apply bg-ivory text-charcoal font-body antialiased;
+    @apply bg-ivory text-charcoal antialiased;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
     overflow-x: hidden;
   }
 
   h1,
   h2,
+  .font-heading,
+  .heading-font {
+    font-family: var(--font-heading);
+    letter-spacing: -0.035em;
+  }
+
   h3,
-  h4 {
-    @apply font-heading tracking-normal;
+  h4,
+  h5,
+  h6,
+  nav,
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  table,
+  .font-ui {
+    font-family: var(--font-body);
+    letter-spacing: -0.02em;
+  }
+
+  p,
+  li,
+  dd,
+  dt,
+  td,
+  th {
+    @apply text-base leading-7 md:text-lg md:leading-8;
   }
 
   img {
@@ -32,6 +68,7 @@
   }
 }
 
+
 @layer components {
   .container-pad {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
@@ -42,7 +79,7 @@
   }
 
   .eyebrow {
-    @apply text-xs font-extrabold uppercase tracking-[0.18em] text-royalGold;
+    @apply font-ui text-xs font-bold uppercase tracking-[0.25em] text-royalGold md:text-sm;
   }
 
   .premium-card {
@@ -54,11 +91,11 @@
   }
 
   .btn-royal {
-    @apply btn border-0 bg-royalGold text-charcoal hover:bg-sunset hover:text-ivory;
+    @apply btn font-ui text-sm font-bold tracking-wide border-0 bg-royalGold text-charcoal hover:bg-sunset hover:text-ivory md:text-[15px];
   }
 
   .btn-outline-royal {
-    @apply btn border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory;
+    @apply btn font-ui text-sm font-semibold tracking-wide border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory md:text-[15px];
   }
 
   .btn-ghost-royal {
