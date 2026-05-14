@@ -141,6 +141,10 @@ export function renderNavbar() {
   backdrop?.addEventListener("click", closeMenu);
   document.querySelectorAll(".mobile-nav-link").forEach((link) => link.addEventListener("click", closeMenu));
   window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+  const nav = document.getElementById("main-nav-wrap");
+  const syncNavState = () => nav?.classList.toggle("nav-scrolled", window.scrollY > 20);
+  syncNavState();
+  window.addEventListener("scroll", syncNavState, { passive: true });
   bindPreferenceSwitches();
 }
 
@@ -157,6 +161,16 @@ export function renderFooter() {
   const target = document.getElementById("site-footer");
   if (!target) return;
   target.innerHTML = `
+    <section class="bg-warmSand/35 py-14">
+      <div class="container-pad text-center">
+        <p class="eyebrow">Trusted Travel Standards</p>
+        <h2 class="mt-3 text-3xl font-bold text-royalGreen md:text-4xl">Trusted, Responsible & Locally Connected</h2>
+        <p class="mx-auto mt-4 max-w-4xl text-charcoal/75">Royal Horizon Tours is built around responsible travel, transparent planning, and trusted Tanzania expertise. Our partnerships, review presence, and tourism values help every guest travel with more confidence.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          ${[["APTA","Tourism Network","assets/images/badges/apta-badge.svg","APTA tourism network badge"],["TripAdvisor","Guest Reviews","assets/images/badges/tripadvisor-badge.svg","TripAdvisor guest review badge"],["Leave No Trace","Responsible Travel","assets/images/badges/leave-no-trace-badge.svg","Leave No Trace responsible travel partner badge"],["Tanzania Tourist Board","Tanzania Tourism","assets/images/badges/tanzania-tourist-board-badge.svg","Tanzania Tourist Board tourism badge"]].map(([name,label,src,alt])=>`<article class="rounded-2xl border border-royalGreen/10 bg-ivory p-5 shadow-soft"><img src="${src}" alt="${alt}" class="mx-auto h-16 w-full object-contain" loading="lazy" /><h3 class="mt-3 text-base font-bold text-royalGreen">${name}</h3><p class="text-sm text-charcoal/70">${label}</p></article>`).join("")}
+        </div>
+      </div>
+    </section>
     <footer class="bg-charcoal text-ivory">
       <div class="container-pad grid gap-10 py-14 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
         <div>
