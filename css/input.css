@@ -118,6 +118,10 @@
     background: linear-gradient(90deg, rgba(18, 55, 42, 0.92), rgba(18, 55, 42, 0.56), rgba(18, 55, 42, 0.14));
   }
 
+  .hero-safe {
+    @apply pt-28 sm:pt-32;
+  }
+
   .glass-panel {
     @apply border border-white/20 bg-white/10 shadow-premium backdrop-blur-md;
   }
