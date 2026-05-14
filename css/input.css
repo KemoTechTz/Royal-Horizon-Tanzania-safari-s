@@ -119,8 +119,8 @@
 @layer components {
   .hero-shell { @apply relative overflow-hidden bg-royalGreen text-ivory; }
   .hero-media { @apply absolute inset-0 h-full w-full object-cover; }
-  .hero-content { @apply container-pad relative z-10 flex min-h-[680px] items-end py-20 pt-36 sm:pt-40 md:items-center md:py-24; }
-  .hero-heading { @apply mt-5 font-heading text-[2.35rem] font-bold leading-[1.08] md:text-7xl; }
+  .hero-content { @apply container-pad relative z-10 flex min-h-[680px] items-start py-14 pt-28 sm:pt-32 md:items-center md:py-20; }
+  .hero-heading { @apply mt-4 font-heading text-[2.2rem] font-bold leading-[1.12] sm:text-[2.7rem] md:text-7xl; }
   .btn-royal-secondary { @apply btn border border-royalGreen bg-white text-royalGreen hover:bg-warmSand; }
   .btn-royal-ghost { @apply btn border-0 bg-transparent text-royalGreen hover:bg-royalGreen/10; }
 }

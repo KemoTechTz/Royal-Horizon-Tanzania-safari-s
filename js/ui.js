@@ -78,47 +78,63 @@ export function renderNavbar() {
   const currency = getCurrency();
   const language = getLanguage();
   target.innerHTML = `
-    <div id="main-nav-wrap" class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/95 text-ivory backdrop-blur transition-all duration-300">
-      <div class="container-pad">
-        <div class="navbar min-h-[82px] px-0">
-          <div class="navbar-start gap-3">
-            <button class="btn btn-ghost px-2 text-ivory lg:hidden" id="mobile-menu-toggle" aria-label="Open menu" aria-expanded="false">
-              <span class="text-base font-bold">Menu</span>
-            </button>
-            <a href="index.html" class="flex items-center gap-3">
-              <span class="grid h-12 w-12 place-items-center rounded-full border border-royalGold/50 bg-ivory text-lg font-black text-royalGreen">RH</span>
-              <span class="leading-tight"><span class="block font-heading text-xl font-bold">Royal Horizon Tours</span><span class="block text-xs font-semibold uppercase tracking-[0.2em] text-royalGold">Tanzania</span></span>
-            </a>
-          </div>
-          <nav class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal items-center gap-1 px-1 text-[15px] font-bold">
+  <div id="main-nav-wrap" class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/95 text-ivory shadow-lg backdrop-blur">
+    <div class="container-pad">
+      <div class="flex min-h-[68px] items-center justify-between gap-3 lg:min-h-[74px]">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-royalGold/50 bg-ivory text-sm font-black text-royalGreen lg:h-11 lg:w-11">RH</span>
+          <span class="text-[15px] font-semibold leading-tight sm:text-base">Royal Horizon <span class="hidden sm:inline">Tours</span></span>
+        </a>
+        <div class="flex items-center gap-2 lg:hidden">
+          <a href="booking.html" class="btn-royal btn-sm rounded-xl px-3">Book</a>
+          <button id="mobile-menu-toggle" class="btn btn-ghost btn-sm border border-white/20 text-ivory" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+
+        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:pl-8">
+          <nav>
+            <ul class="menu menu-horizontal gap-1 px-0 text-[15px] font-semibold">
               <li><a class="${activeClass("index.html")}" href="index.html">Home</a></li>
-              <li class="dropdown dropdown-hover"><button class="${activeClass("kilimanjaro.html")}">Services</button><ul class="dropdown-content menu z-[60] mt-3 w-72 rounded-box bg-ivory p-3 text-charcoal shadow-premium"><li><a href="kilimanjaro.html">Climb Kilimanjaro</a></li><li><a href="safaris.html">Signature Tanzania Safaris</a></li><li><a href="reasons-to-trust-us.html#signature-experience">Signature Royal Experience</a></li><li><a href="day-trips.html">Day Trips</a></li></ul></li>
-              <li><a class="${activeClass("destinations.html")}" href="destinations.html">Destinations</a></li><li><a class="${activeClass("blog.html")}" href="blog.html">Blogs</a></li><li><a class="${activeClass("about.html")}" href="about.html">About</a></li><li><a class="${activeClass("contact.html")}" href="contact.html">Contact</a></li><li><a class="${activeClass("connect-expert.html")}" href="connect-expert.html">Connect Expert</a></li>
+              <li class="dropdown dropdown-hover dropdown-bottom"><button class="${activeClass("kilimanjaro.html")}">Services</button><ul class="dropdown-content menu z-[70] mt-3 w-72 rounded-2xl border border-royalGreen/10 bg-ivory p-2 text-charcoal shadow-premium"><li><a href="kilimanjaro.html">Climb Kilimanjaro</a></li><li><a href="safaris.html">Signature Tanzania Safaris</a></li><li><a href="reasons-to-trust-us.html#signature-experience">Signature Royal Experience</a></li><li><a href="day-trips.html">Day Trips</a></li></ul></li>
+              <li><a class="${activeClass("destinations.html")}" href="destinations.html">Destinations</a></li>
+              <li><a class="${activeClass("blog.html")}" href="blog.html">Blogs</a></li>
+              <li><a class="${activeClass("about.html")}" href="about.html">About</a></li>
+              <li><a class="${activeClass("contact.html")}" href="contact.html">Contact</a></li>
             </ul>
           </nav>
-          <div class="navbar-end hidden gap-2 lg:flex">
-            <a href="client-portal.html" class="btn btn-sm border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Client Portal</a><a href="admin.html" class="btn btn-sm border-white/30 bg-transparent text-ivory hover:bg-white/10">Admin</a>
-            <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select>
-            <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select>
-            <a href="booking.html" class="btn-royal btn-sm">Book Now</a>
+          <div class="flex items-center gap-2">
+            <a href="connect-expert.html" class="btn btn-sm rounded-xl border-white/35 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Plan With Expert</a>
+            <a href="booking.html" class="btn-royal btn-sm rounded-xl">Book Now</a>
+            <div class="dropdown dropdown-end"><button class="btn btn-sm rounded-xl border-white/25 bg-white/10 text-ivory">Portal</button><ul class="dropdown-content menu z-[70] mt-2 w-48 rounded-xl border border-royalGreen/10 bg-ivory p-2 text-charcoal shadow-soft"><li><a href="client-portal.html">Client Portal</a></li><li><a href="admin.html">Admin</a></li></ul></div>
+            <div class="dropdown dropdown-end"><button class="btn btn-sm rounded-xl border-white/25 bg-white/10 text-ivory">Settings</button><div class="dropdown-content z-[70] mt-2 w-56 rounded-xl border border-royalGreen/10 bg-ivory p-3 text-charcoal shadow-soft"><label class="text-xs font-bold uppercase tracking-wide text-royalGreen">Currency</label><select class="form-select mt-1" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><label class="mt-3 text-xs font-bold uppercase tracking-wide text-royalGreen">Language</label><select class="form-select mt-1" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div></div>
           </div>
         </div>
-        <div id="mobile-menu" class="hidden border-t border-white/10 py-4 lg:hidden"><div class="grid gap-2 text-base font-semibold">
-          ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Client Portal','client-portal.html'],['Admin','admin.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
-          <details class="rounded-xl border border-white/15 px-3 py-2"><summary class="cursor-pointer py-1">Services</summary><div class="mt-2 grid gap-2 text-sm"><a href="kilimanjaro.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Climb Kilimanjaro</a><a href="safaris.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Tanzania Safaris</a><a href="reasons-to-trust-us.html#signature-experience" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Royal Experience</a><a href="day-trips.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Day Trips</a></div></details>
-          <div class="grid grid-cols-2 gap-3 px-3 pt-2"><select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div>
-          <a href="booking.html" class="btn-royal mt-2">Plan My Adventure</a>
-        </div></div>
       </div>
-    </div>`;
+    </div>
+  </div>
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-[60] hidden bg-charcoal/50 lg:hidden"></div>
+  <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/15 pb-4"><p class="text-lg font-semibold">Royal Horizon Tours</p><button id="mobile-menu-close" class="btn btn-ghost btn-sm text-ivory" aria-label="Close navigation menu">✕</button></div>
+    <nav class="mt-5 grid gap-1 text-lg">
+      ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Client Portal','client-portal.html'],['Admin','admin.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
+      <details class="mt-1 rounded-xl border border-white/15 px-3 py-2"><summary class="cursor-pointer text-base font-semibold">Services</summary><div class="mt-2 grid gap-2 text-base"><a href="kilimanjaro.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Climb Kilimanjaro</a><a href="safaris.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Tanzania Safaris</a><a href="reasons-to-trust-us.html#signature-experience" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Royal Experience</a><a href="day-trips.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Day Trips</a></div></details>
+    </nav>
+    <div class="mt-6 grid gap-3 rounded-2xl border border-white/15 p-4"><select class="select border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><select class="select border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div>
+    <div class="mt-6 grid gap-3"><a href="connect-expert.html" class="btn rounded-xl border-white/35 bg-white/10 text-ivory">Plan My Adventure</a><a href="booking.html" class="btn-royal rounded-xl">Start Booking</a></div>
+  </aside>`;
 
+  const drawer = document.getElementById("mobile-drawer");
+  const backdrop = document.getElementById("mobile-drawer-backdrop");
   const toggle = document.getElementById("mobile-menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  const closeMenu = () => { menu?.classList.add("hidden"); document.body.classList.remove("overflow-hidden"); toggle?.setAttribute("aria-expanded", "false"); };
-  toggle?.addEventListener("click", () => { const open = menu?.classList.toggle("hidden") === false; document.body.classList.toggle("overflow-hidden", open); toggle.setAttribute("aria-expanded", String(open));});
-  document.querySelectorAll('.mobile-nav-link').forEach((link) => link.addEventListener('click', closeMenu));
-  window.addEventListener("scroll", () => document.getElementById("main-nav-wrap")?.classList.toggle("bg-royalGreen", window.scrollY > 24));
+  const closeBtn = document.getElementById("mobile-menu-close");
+  const openMenu = () => { drawer?.classList.remove("hidden"); backdrop?.classList.remove("hidden"); document.body.classList.add("overflow-hidden"); toggle?.setAttribute("aria-expanded", "true"); };
+  const closeMenu = () => { drawer?.classList.add("hidden"); backdrop?.classList.add("hidden"); document.body.classList.remove("overflow-hidden"); toggle?.setAttribute("aria-expanded", "false"); };
+  toggle?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => link.addEventListener("click", closeMenu));
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
   bindPreferenceSwitches();
 }
 

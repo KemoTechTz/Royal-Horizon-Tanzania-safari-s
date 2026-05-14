@@ -75,14 +75,14 @@ function packageLink(pkg) {
 function renderHome(root) {
   setPageTitle("Kilimanjaro Climbs, Tanzania Safaris & Day Trips");
   root.innerHTML = `
-    <section data-hero-slider class="hero-shell min-h-[720px]">
+    <section data-hero-slider class="hero-shell min-h-[760px] md:min-h-[720px]">
       ${heroSlides
         .map(
           (slide, index) => `
         <article data-slide class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ${index === 0 ? "opacity-100" : ""}">
           <img src="${slide.image}" alt="${escapeHtml(slide.title)}" class="hero-media" loading="eager" />
           <div class="hero-overlay absolute inset-0"></div>
-          <div class="hero-content min-h-[720px]">
+          <div class="hero-content min-h-[760px] md:min-h-[720px]">
             <div class="max-w-4xl">
               <p class="eyebrow">Royal Horizon Tours</p>
               <h1 class="hero-heading text-balance">${escapeHtml(slide.title)}</h1>
@@ -101,7 +101,7 @@ function renderHome(root) {
         </article>`
         )
         .join("")}
-      <div class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 gap-3">
+      <div class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-3 md:bottom-8">
         ${heroSlides.map((_, index) => `<button data-slide-dot class="h-3 w-10 rounded-full ${index === 0 ? "bg-royalGold" : "bg-white/40"}" aria-label="Slide ${index + 1}"></button>`).join("")}
       </div>
       <button data-prev-slide class="btn btn-circle absolute left-4 top-1/2 z-10 hidden border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen md:flex">Prev</button>
