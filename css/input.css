@@ -7,10 +7,13 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: #C9A14A #12372A;
   }
 
   body {
     @apply bg-ivory text-charcoal font-body antialiased;
+    overflow-x: hidden;
   }
 
   h1,
@@ -123,4 +126,12 @@
   .hero-heading { @apply mt-4 font-heading text-[2.2rem] font-bold leading-[1.12] sm:text-[2.7rem] md:text-7xl; }
   .btn-royal-secondary { @apply btn border border-royalGreen bg-white text-royalGreen hover:bg-warmSand; }
   .btn-royal-ghost { @apply btn border-0 bg-transparent text-royalGreen hover:bg-royalGreen/10; }
+}
+
+@layer utilities {
+  .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #C9A14A rgba(18, 55, 42, 0.35); }
+  .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: rgba(18, 55, 42, 0.18); border-radius: 999px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A14A, #8A6F2A); border-radius: 999px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #E1BE64; }
 }

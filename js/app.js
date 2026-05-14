@@ -264,7 +264,7 @@ function renderKilimanjaro(root) {
     <section class="section-pad">
       <div class="container-pad">
         ${sectionHeader("Route Comparison", "Mountain Routes at a Glance", "Success rate is not a guarantee. It reflects route profile, pace, preparation, and how a crew manages the climb.")}
-        <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+        <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
           <table class="table">
             <thead><tr class="bg-warmSand text-royalGreen"><th>Route</th><th>Days</th><th>Difficulty</th><th>Success Rate</th><th>Starting Price</th></tr></thead>
             <tbody>${kilimanjaroRoutes.map((route) => `<tr><td class="font-bold">${route.name}</td><td>${route.days}</td><td>${route.difficulty}</td><td>${route.successRate}</td><td><span data-price-usd="${route.priceFrom}" data-price-label="from">from</span></td></tr>`).join("")}</tbody>

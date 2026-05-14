@@ -182,7 +182,7 @@ function renderOverview() {
 function renderBookings() {
   const bookings = getData(STORAGE_KEYS.bookings, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Reference</th><th>Client</th><th>Package</th><th>Date</th><th>Travellers</th><th>Booking</th><th>Payment</th><th>Amount</th><th>Actions</th></tr></thead>
         <tbody>
@@ -247,7 +247,7 @@ function renderEnquiries() {
 function renderExpertCalls() {
   const calls = getData(STORAGE_KEYS.expertCalls, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Name</th><th>Interest</th><th>Date</th><th>Time</th><th>WhatsApp</th><th>Status</th><th>Notes</th></tr></thead>
         <tbody>
@@ -302,7 +302,7 @@ function renderReviews() {
 function renderNewsletter() {
   const leads = getData(STORAGE_KEYS.newsletter, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Name</th><th>Email</th><th>Interest</th><th>Signup date</th></tr></thead>
         <tbody>
@@ -348,7 +348,7 @@ function renderPackages() {
 function renderPayments() {
   const payments = getData(STORAGE_KEYS.payments, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Reference</th><th>Client</th><th>Amount</th><th>Deposit</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead>
         <tbody>

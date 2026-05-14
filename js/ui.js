@@ -114,7 +114,7 @@ export function renderNavbar() {
     </div>
   </div>
   <div id="mobile-drawer-backdrop" class="fixed inset-0 z-[60] hidden bg-charcoal/50 lg:hidden"></div>
-  <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
+  <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto custom-scrollbar bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
     <div class="flex items-center justify-between border-b border-white/15 pb-4"><p class="text-lg font-semibold">Royal Horizon Tours</p><button id="mobile-menu-close" class="btn btn-ghost btn-sm text-ivory" aria-label="Close navigation menu">✕</button></div>
     <nav class="mt-5 grid gap-1 text-lg">
       ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Client Portal','client-portal.html'],['Admin','admin.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
@@ -256,7 +256,7 @@ export function openModal(title, bodyHtml, actionsHtml = "") {
     document.body.appendChild(modal);
   }
   modal.innerHTML = `
-    <div class="modal-box max-w-3xl bg-ivory">
+    <div class="modal-box custom-scrollbar max-h-[85vh] overflow-y-auto max-w-3xl bg-ivory">
       <form method="dialog">
         <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Close">x</button>
       </form>
