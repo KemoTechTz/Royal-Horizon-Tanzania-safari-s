@@ -80,7 +80,7 @@ function renderHome(root) {
         .map(
           (slide, index) => `
         <article data-slide class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ${index === 0 ? "opacity-100" : ""}">
-          <img src="${slide.image}" alt="${escapeHtml(slide.title)}" class="hero-media" loading="eager" />
+          <img src="${slide.image}" alt="${escapeHtml(slide.title)}" class="hero-media object-[50%_40%]" loading="eager" />
           <div class="hero-overlay absolute inset-0"></div>
           <div class="hero-content min-h-[760px] md:min-h-[720px]">
             <div class="max-w-4xl">

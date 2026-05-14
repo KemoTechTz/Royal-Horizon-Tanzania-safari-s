@@ -342,7 +342,7 @@ export function renderHero({ eyebrow = "Royal Horizon Tours", title, text, image
   const heightClass = compact ? "min-h-[460px]" : "min-h-[680px]";
   return `
     <section class="hero-shell ${heightClass}">
-      <img src="${image}" alt="${escapeHtml(title)}" class="hero-media" loading="lazy" />
+      <img src="${image}" alt="${escapeHtml(title)} in Tanzania" class="hero-media object-[center_35%]" loading="lazy" />
       <div class="hero-overlay absolute inset-0"></div>
       <div class="hero-content ${heightClass}">
         <div class="max-w-3xl">
@@ -366,7 +366,7 @@ export function renderServiceCards(items = serviceCards) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-64 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-64 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
             <p class="mt-3 min-h-24 text-sm leading-7 text-charcoal/70">${escapeHtml(item.text)}</p>
@@ -386,7 +386,7 @@ export function renderRouteCards(items = kilimanjaroRoutes) {
         .map(
           (route) => `
         <article class="premium-card overflow-hidden">
-          <img src="${route.image}" alt="${escapeHtml(route.name)}" class="h-56 w-full object-cover" />
+          <img src="${route.image}" alt="${escapeHtml(route.name)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <div class="flex items-start justify-between gap-4">
               <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(route.name)}</h3>
@@ -417,7 +417,7 @@ export function renderSafariCards(items = safariPackages) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden" data-category="${escapeHtml(item.category)}">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <div class="flex items-start justify-between gap-4">
               <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
@@ -446,7 +446,7 @@ export function renderDayTripCards(items = dayTrips) {
         .map(
           (trip) => `
         <article class="premium-card overflow-hidden">
-          <img src="${trip.image}" alt="${escapeHtml(trip.title)}" class="h-56 w-full object-cover" />
+          <img src="${trip.image}" alt="${escapeHtml(trip.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(trip.title)}</h3>
             <p class="mt-2 text-sm font-bold text-sunset">${escapeHtml(trip.location)} - ${escapeHtml(trip.duration)}</p>
@@ -471,7 +471,7 @@ export function renderDestinationCards(items = destinations) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
             <p class="mt-3 text-sm leading-7 text-charcoal/70">${escapeHtml(item.overview.slice(0, 165))}...</p>
@@ -491,7 +491,7 @@ export function renderBlogCards(items = blogPosts) {
         .map(
           (post) => `
         <article class="premium-card overflow-hidden" data-category="${escapeHtml(post.category)}" data-title="${escapeHtml(post.title.toLowerCase())}">
-          <img src="${post.image}" alt="${escapeHtml(post.title)}" class="h-56 w-full object-cover" />
+          <img src="${post.image}" alt="${escapeHtml(post.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-sunset">${escapeHtml(post.category)}</p>
             <h3 class="mt-3 font-heading text-3xl font-bold leading-tight text-royalGreen">${escapeHtml(post.title)}</h3>
