@@ -14,7 +14,7 @@ export default {
         savannah: "#8A5A32"
       },
       fontFamily: {
-        heading: ["Fraunces", "Cormorant Garamond", "serif"],
+        heading: ["Playfair Display", "serif"],
         body: ["Manrope", "Inter", "sans-serif"]
       },
       boxShadow: {
