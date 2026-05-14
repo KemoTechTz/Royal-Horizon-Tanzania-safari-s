@@ -1,4 +1,4 @@
-import kilimanjaroImg from "./asset/image/kilimanjaro.png";
+import kilimanjaroImg from "./assets/images/kilimanjaro.png";
 
 
 export const STORAGE_KEYS = {
