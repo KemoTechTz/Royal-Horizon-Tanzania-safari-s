@@ -37,7 +37,7 @@ export const LANGUAGES = [
 ];
 
 export const imageLibrary = {
-  kilimanjaro: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1920&q=82",
+  kilimanjaro: assets/images/kilimanjaro.png,
   kilimanjaroTrail: "https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1600&q=82",
   safari: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=82",
   lion: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=82",
