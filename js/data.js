@@ -40,7 +40,7 @@ export const LANGUAGES = [
 ];
 
 export const imageLibrary = {
-  kilimanjaro: "/asset/image/kilimanjaro.png",
+  kilimanjaro: "/assets/images/kilimanjaro.png",
   kilimanjaroTrail: "/asset/image/kilimanjaroTrail.png",
   safari: "/asset/image/safari.png",
   lion: "/asset/image/lion.png",
