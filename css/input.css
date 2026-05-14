@@ -98,6 +98,10 @@
     @apply btn font-ui text-sm font-semibold tracking-wide border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory md:text-[15px];
   }
 
+  .btn-ghost-royal {
+    @apply btn border border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen;
+  }
+
   .form-field {
     @apply input input-bordered w-full border-royalGreen/20 bg-white focus:border-royalGold;
   }
@@ -112,6 +116,10 @@
 
   .hero-overlay {
     background: linear-gradient(90deg, rgba(18, 55, 42, 0.92), rgba(18, 55, 42, 0.56), rgba(18, 55, 42, 0.14));
+  }
+
+  .hero-safe {
+    @apply pt-28 sm:pt-32;
   }
 
   .glass-panel {
