@@ -1,4 +1,4 @@
-import kilimanjaroImg from "../assets/images/kilimanjaro.png";
+
 
 
 export const STORAGE_KEYS = {
@@ -40,21 +40,21 @@ export const LANGUAGES = [
 ];
 
 export const imageLibrary = {
-  kilimanjaro: kilimanjaroImg,
-  kilimanjaroTrail: "https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1600&q=82",
-  safari: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=82",
-  lion: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=82",
-  elephant: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?auto=format&fit=crop&w=1600&q=82",
-  travellers: "https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=1600&q=82",
-  camp: "https://images.unsplash.com/photo-1470246973918-29a93221c455?auto=format&fit=crop&w=1920&q=82",
-  zanzibar: "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1600&q=82",
-  waterfall: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?auto=format&fit=crop&w=1600&q=82",
-  hotSprings: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=82",
-  coffee: "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1600&q=82",
-  crater: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1600&q=82",
-  culture: "https://images.unsplash.com/photo-1523905330026-b8bd1f5f320e?auto=format&fit=crop&w=1600&q=82",
-  lodge: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=1600&q=82",
-  planning: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1600&q=82"
+  kilimanjaro: "/asset/image/kilimanjaro.png",
+  kilimanjaroTrail: "/asset/image/kilimanjaroTrail.png",
+  safari: "/asset/image/safari.png",
+  lion: "/asset/image/lion.png",
+  elephant: "/asset/image/elephant.png",
+  travellers: "/asset/image/travellers.png",
+  camp: "/asset/image/camp.png",
+  zanzibar: "/asset/image/zanzibar.png",
+  waterfall: "/asset/image/waterfall.png",
+  hotSprings: "/asset/image/hotSprings.png",
+  coffee: "/asset/image/coffee.png",
+  crater: "/asset/image/crater.png",
+  culture: "/asset/image/culture.png",
+  lodge: "/asset/image/lodge.png",
+  planning: "/asset/image/planning.png"
 };
 
 export const heroSlides = [
