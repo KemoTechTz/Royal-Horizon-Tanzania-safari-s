@@ -1,23 +1,67 @@
-@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650;9..144,750&family=Manrope:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  }
+
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+    scrollbar-width: thin;
+    scrollbar-color: #C9A14A #12372A;
+    font-family: var(--font-body);
   }
 
   body {
-    @apply bg-ivory text-charcoal font-body antialiased;
+    @apply bg-ivory text-charcoal antialiased;
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
+    overflow-x: hidden;
   }
 
   h1,
   h2,
+  .font-heading,
+  .heading-font {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    font-weight: 800;
+  }
+
   h3,
-  h4 {
-    @apply font-heading tracking-normal;
+  h4,
+  h5,
+  h6,
+  nav,
+  button,
+  input,
+  select,
+  textarea,
+  label,
+  table,
+  .card,
+  .badge,
+  .dashboard,
+  .client-portal,
+  .admin-panel,
+  .font-ui {
+    font-family: var(--font-body);
+    letter-spacing: -0.02em;
+  }
+
+  p,
+  li,
+  dd,
+  dt,
+  td,
+  th {
+    @apply text-base leading-7 md:text-lg md:leading-8;
   }
 
   img {
@@ -29,6 +73,7 @@
   }
 }
 
+
 @layer components {
   .container-pad {
     @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
@@ -39,7 +84,7 @@
   }
 
   .eyebrow {
-    @apply text-xs font-extrabold uppercase tracking-[0.18em] text-royalGold;
+    @apply font-ui text-xs font-bold uppercase tracking-[0.2em] text-royalGold md:text-sm;
   }
 
   .premium-card {
@@ -51,11 +96,11 @@
   }
 
   .btn-royal {
-    @apply btn border-0 bg-royalGold text-charcoal hover:bg-sunset hover:text-ivory;
+    @apply btn font-ui text-sm font-bold tracking-wide border-0 bg-royalGold text-charcoal hover:bg-sunset hover:text-ivory md:text-[15px];
   }
 
   .btn-outline-royal {
-    @apply btn border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory;
+    @apply btn font-ui text-sm font-semibold tracking-wide border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory md:text-[15px];
   }
 
   .form-field {
@@ -106,3 +151,28 @@
     scrollbar-width: none;
   }
 }
+
+
+@layer components {
+  .hero-shell { @apply relative overflow-hidden bg-royalGreen text-ivory; }
+  .hero-media { @apply absolute inset-0 h-full w-full object-cover; }
+  .hero-content { @apply container-pad relative z-10 flex min-h-[680px] items-start py-14 pt-28 sm:pt-32 md:items-center md:py-20; }
+  .hero-heading { @apply mt-4 font-heading text-[2.2rem] font-bold leading-[1.12] sm:text-[2.7rem] md:text-7xl; }
+  .btn-royal-secondary { @apply btn border border-royalGreen bg-white text-royalGreen hover:bg-warmSand; }
+  .btn-royal-ghost { @apply btn border-0 bg-transparent text-royalGreen hover:bg-royalGreen/10; }
+}
+
+@layer utilities {
+  .custom-scrollbar { scrollbar-width: thin; scrollbar-color: #C9A14A rgba(18, 55, 42, 0.35); }
+  .custom-scrollbar::-webkit-scrollbar { width: 8px; height: 8px; }
+  .custom-scrollbar::-webkit-scrollbar-track { background: rgba(18, 55, 42, 0.18); border-radius: 999px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #C9A14A, #8A6F2A); border-radius: 999px; }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #E1BE64; }
+}
+
+@media (max-width: 767px) {
+  html { scroll-padding-top: 76px; }
+}
+
+#main-nav-wrap { transition: background 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+#main-nav-wrap.nav-scrolled { background: rgba(18,55,42,0.98); box-shadow: 0 14px 40px rgba(0,0,0,0.18); border-bottom: 1px solid rgba(201,161,74,0.24); }
