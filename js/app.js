@@ -73,20 +73,20 @@ function packageLink(pkg) {
 }
 
 function renderHome(root) {
-  setPageTitle("");
+  setPageTitle("Kilimanjaro Climbs, Tanzania Safaris & Day Trips");
   root.innerHTML = `
-    <section data-hero-slider class="relative min-h-[700px] overflow-hidden bg-royalGreen text-ivory">
+    <section data-hero-slider class="hero-shell min-h-[760px] md:min-h-[720px]">
       ${heroSlides
         .map(
           (slide, index) => `
         <article data-slide class="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-700 ${index === 0 ? "opacity-100" : ""}">
-          <img src="${slide.image}" alt="${escapeHtml(slide.title)}" class="absolute inset-0 h-full w-full object-cover" />
+          <img src="${slide.image}" alt="${escapeHtml(slide.title)}" class="hero-media object-[50%_40%]" loading="eager" />
           <div class="hero-overlay absolute inset-0"></div>
-          <div class="container-pad relative flex min-h-[700px] items-center py-24">
+          <div class="hero-content min-h-[760px] md:min-h-[720px]">
             <div class="max-w-4xl">
               <p class="eyebrow">Royal Horizon Tours</p>
-              <h1 class="mt-5 font-heading text-5xl font-bold leading-tight text-balance md:text-7xl">${escapeHtml(slide.title)}</h1>
-              <p class="mt-6 max-w-2xl text-lg leading-8 text-ivory/84">${escapeHtml(slide.text)}</p>
+              <h1 class="hero-heading text-balance">${escapeHtml(slide.title)}</h1>
+              <p class="mt-6 max-w-2xl text-base leading-8 text-ivory/90 md:text-xl">${escapeHtml(slide.text)}</p>
               <div class="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="${slide.primary.href}" class="btn-royal">${escapeHtml(slide.primary.label)}</a>
                 <a href="${slide.secondary.href}" class="btn border-white/40 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">${escapeHtml(slide.secondary.label)}</a>
@@ -101,7 +101,7 @@ function renderHome(root) {
         </article>`
         )
         .join("")}
-      <div class="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 gap-3">
+      <div class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-3 md:bottom-8">
         ${heroSlides.map((_, index) => `<button data-slide-dot class="h-3 w-10 rounded-full ${index === 0 ? "bg-royalGold" : "bg-white/40"}" aria-label="Slide ${index + 1}"></button>`).join("")}
       </div>
       <button data-prev-slide class="btn btn-circle absolute left-4 top-1/2 z-10 hidden border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen md:flex">Prev</button>
@@ -264,7 +264,7 @@ function renderKilimanjaro(root) {
     <section class="section-pad">
       <div class="container-pad">
         ${sectionHeader("Route Comparison", "Mountain Routes at a Glance", "Success rate is not a guarantee. It reflects route profile, pace, preparation, and how a crew manages the climb.")}
-        <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+        <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
           <table class="table">
             <thead><tr class="bg-warmSand text-royalGreen"><th>Route</th><th>Days</th><th>Difficulty</th><th>Success Rate</th><th>Starting Price</th></tr></thead>
             <tbody>${kilimanjaroRoutes.map((route) => `<tr><td class="font-bold">${route.name}</td><td>${route.days}</td><td>${route.difficulty}</td><td>${route.successRate}</td><td><span data-price-usd="${route.priceFrom}" data-price-label="from">from</span></td></tr>`).join("")}</tbody>

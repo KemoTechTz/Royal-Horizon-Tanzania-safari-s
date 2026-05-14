@@ -71,7 +71,7 @@ export function renderAdminPage(root) {
       <div class="container-pad">
         <form id="admin-login" class="mx-auto max-w-xl rounded-3xl border border-royalGreen/10 bg-warmSand/50 p-7 shadow-soft">
           <p class="eyebrow">Secure team access</p>
-          <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Admin Login</h2>
+          <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Admin Login</h2>
           <div class="mt-6 grid gap-4">
             <label class="form-control"><span class="label-text font-bold">Email</span><input name="email" type="email" class="form-field" value="admin@royalhorizon.com" required /></label>
             <label class="form-control"><span class="label-text font-bold">Password</span><input name="password" type="password" class="form-field" value="admin123" required /></label>
@@ -100,7 +100,7 @@ function renderDashboard(root) {
       <div class="container-pad flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
         <div>
           <p class="eyebrow">Admin Dashboard</p>
-          <h1 class="mt-3 font-heading text-5xl font-bold">Royal Horizon Control Room</h1>
+          <h1 class="mt-3 font-ui text-5xl font-bold">Royal Horizon Control Room</h1>
           <p class="mt-3 max-w-2xl text-ivory/76">Operations view for bookings, enquiries, payment states, reviews, package settings, and demo data tools.</p>
         </div>
         <button id="admin-logout" class="btn border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Logout</button>
@@ -122,7 +122,7 @@ function renderDashboard(root) {
               ([label, value]) => `
             <article class="rounded-2xl border border-royalGreen/10 bg-white p-5 shadow-soft">
               <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-sunset">${label}</p>
-              <p class="mt-3 font-heading text-3xl font-bold text-royalGreen">${value}</p>
+              <p class="mt-3 font-ui text-3xl font-bold text-royalGreen">${value}</p>
             </article>`
             )
             .join("")}
@@ -162,7 +162,7 @@ function renderOverview() {
     <div class="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="rounded-3xl border border-royalGreen/10 bg-warmSand/50 p-7 shadow-soft">
         <p class="eyebrow">Operations pulse</p>
-        <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Today Needs Attention</h2>
+        <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Today Needs Attention</h2>
         <div class="mt-6 grid gap-4">
           <div class="rounded-2xl bg-white p-4"><strong>${s.pendingBookings}</strong> booking requests need review.</div>
           <div class="rounded-2xl bg-white p-4"><strong>${s.pendingPayments}</strong> payment records need follow-up.</div>
@@ -172,7 +172,7 @@ function renderOverview() {
       </div>
       <div class="rounded-3xl border border-royalGreen/10 bg-royalGreen p-7 text-ivory shadow-soft">
         <p class="eyebrow">Revenue view</p>
-        <h2 class="mt-3 font-heading text-4xl font-bold">${formatPrice(s.revenue, "USD")}</h2>
+        <h2 class="mt-3 font-ui text-4xl font-bold">${formatPrice(s.revenue, "USD")}</h2>
         <p class="mt-4 text-ivory/74">Estimated value of current bookings. Use the payments tab to move records through deposit, full payment, review, or refund states.</p>
       </div>
     </div>
@@ -182,7 +182,7 @@ function renderOverview() {
 function renderBookings() {
   const bookings = getData(STORAGE_KEYS.bookings, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Reference</th><th>Client</th><th>Package</th><th>Date</th><th>Travellers</th><th>Booking</th><th>Payment</th><th>Amount</th><th>Actions</th></tr></thead>
         <tbody>
@@ -226,7 +226,7 @@ function renderEnquiries() {
           <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
               <p class="eyebrow">${escapeHtml(item.source || "Enquiry")}</p>
-              <h3 class="mt-2 font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.fullName)}</h3>
+              <h3 class="mt-2 font-ui text-3xl font-bold text-royalGreen">${escapeHtml(item.fullName)}</h3>
               <p class="mt-2 text-sm text-charcoal/70">${escapeHtml(item.email)} - ${escapeHtml(item.whatsapp || "")}</p>
               <p class="mt-3 text-sm leading-7 text-charcoal/72">${escapeHtml(item.travelType || item.subject || "General")} | ${escapeHtml(item.destinationInterest || item.message || "")}</p>
             </div>
@@ -247,7 +247,7 @@ function renderEnquiries() {
 function renderExpertCalls() {
   const calls = getData(STORAGE_KEYS.expertCalls, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Name</th><th>Interest</th><th>Date</th><th>Time</th><th>WhatsApp</th><th>Status</th><th>Notes</th></tr></thead>
         <tbody>
@@ -281,7 +281,7 @@ function renderReviews() {
         <article class="rounded-3xl border border-royalGreen/10 bg-white p-6 shadow-soft">
           <div class="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div>
-              <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(review.name)}</h3>
+              <h3 class="font-ui text-3xl font-bold text-royalGreen">${escapeHtml(review.name)}</h3>
               <p class="text-sm font-bold text-sunset">${escapeHtml(review.country)} - ${escapeHtml(review.tripType)} - ${escapeHtml(review.rating)}/5</p>
               <p class="mt-3 leading-7 text-charcoal/72">"${escapeHtml(review.comment)}"</p>
             </div>
@@ -302,7 +302,7 @@ function renderReviews() {
 function renderNewsletter() {
   const leads = getData(STORAGE_KEYS.newsletter, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Name</th><th>Email</th><th>Interest</th><th>Signup date</th></tr></thead>
         <tbody>
@@ -332,7 +332,7 @@ function renderPackages() {
           return `
             <article class="rounded-3xl border border-royalGreen/10 bg-white p-6 shadow-soft">
               <p class="eyebrow">${escapeHtml(pkg.type)}</p>
-              <h3 class="mt-2 font-heading text-3xl font-bold text-royalGreen">${escapeHtml(pkg.title)}</h3>
+              <h3 class="mt-2 font-ui text-3xl font-bold text-royalGreen">${escapeHtml(pkg.title)}</h3>
               <p class="mt-3 text-sm text-charcoal/70">Starting price ${formatPrice(pkg.priceFrom, "USD")}</p>
               <div class="mt-5 grid grid-cols-2 gap-3">
                 <label class="flex items-center gap-2 rounded-2xl bg-warmSand/50 p-3 text-sm font-bold"><input type="checkbox" class="toggle toggle-sm" data-package-active="${pkg.slug}" ${settings.active !== false ? "checked" : ""} /> Active</label>
@@ -348,7 +348,7 @@ function renderPackages() {
 function renderPayments() {
   const payments = getData(STORAGE_KEYS.payments, []);
   return `
-    <div class="overflow-x-auto rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
+    <div class="overflow-x-auto custom-scrollbar rounded-3xl border border-royalGreen/10 bg-white shadow-soft">
       <table class="table admin-table">
         <thead><tr><th>Reference</th><th>Client</th><th>Amount</th><th>Deposit</th><th>Balance</th><th>Status</th><th>Actions</th></tr></thead>
         <tbody>
@@ -382,13 +382,13 @@ function renderDemoTools() {
     <div class="grid gap-6 lg:grid-cols-2">
       <div class="rounded-3xl border border-royalGreen/10 bg-warmSand/50 p-7 shadow-soft">
         <p class="eyebrow">Seed sample data</p>
-        <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Add Demo Records</h2>
+        <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Add Demo Records</h2>
         <p class="mt-4 leading-7 text-charcoal/70">Seeds bookings, payments, enquiries, calls, reviews, newsletter leads, forms, and admin notes if the browser has not been seeded yet.</p>
         <button id="seed-demo-data" class="btn-outline-royal mt-6">Seed Sample Data</button>
       </div>
       <div class="rounded-3xl border border-royalGreen/10 bg-white p-7 shadow-soft">
         <p class="eyebrow">Reset workspace</p>
-        <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Reset Demo Data</h2>
+        <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Reset Demo Data</h2>
         <p class="mt-4 leading-7 text-charcoal/70">Clears Royal Horizon browser records and restores the original sample operating data.</p>
         <button id="reset-demo-data" class="btn bg-sunset text-ivory hover:bg-charcoal mt-6">Reset Demo Data</button>
       </div>
