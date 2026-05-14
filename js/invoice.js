@@ -43,7 +43,7 @@ export function renderInvoicePreview(booking, payment = null) {
           <p class="text-sm text-charcoal/70">Travellers: ${escapeHtml(booking.travellers)}</p>
         </div>
       </div>
-      <div class="overflow-x-auto rounded-2xl border border-royalGreen/10">
+      <div class="overflow-x-auto custom-scrollbar rounded-2xl border border-royalGreen/10">
         <table class="table">
           <thead>
             <tr class="bg-warmSand/70 text-royalGreen">

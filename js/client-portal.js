@@ -52,7 +52,7 @@ export function renderClientPortalPage(root) {
       <div class="container-pad grid gap-8 lg:grid-cols-2">
         <form id="client-demo-login" class="rounded-3xl border border-royalGreen/10 bg-warmSand/50 p-7 shadow-soft">
           <p class="eyebrow">Demo login</p>
-          <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Client Sign In</h2>
+          <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Client Sign In</h2>
           <div class="mt-6 grid gap-4">
             <label class="form-control"><span class="label-text font-bold">Email</span><input name="email" type="email" value="client@example.com" class="form-field" required /></label>
             <label class="form-control"><span class="label-text font-bold">Password</span><input name="password" type="password" value="client123" class="form-field" required /></label>
@@ -61,7 +61,7 @@ export function renderClientPortalPage(root) {
         </form>
         <form id="booking-lookup" class="rounded-3xl border border-royalGreen/10 bg-white p-7 shadow-soft">
           <p class="eyebrow">Booking lookup</p>
-          <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Find Your Booking</h2>
+          <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Find Your Booking</h2>
           <div class="mt-6 grid gap-4">
             <label class="form-control"><span class="label-text font-bold">Booking reference</span><input name="reference" class="form-field" placeholder="RH-2026-0041" required /></label>
             <label class="form-control"><span class="label-text font-bold">Email</span><input name="email" type="email" class="form-field" placeholder="client@example.com" required /></label>
@@ -123,7 +123,7 @@ function renderPortal(root, booking) {
             <div class="flex items-start justify-between gap-4">
               <div>
                 <p class="eyebrow">Booking</p>
-                <h2 class="mt-2 font-heading text-4xl font-bold text-royalGreen">${escapeHtml(booking.reference)}</h2>
+                <h2 class="mt-2 font-ui text-4xl font-bold text-royalGreen">${escapeHtml(booking.reference)}</h2>
               </div>
               <button class="btn btn-sm border-royalGreen bg-white text-royalGreen" id="client-logout">Logout</button>
             </div>
@@ -164,7 +164,7 @@ function renderPortal(root, booking) {
         </aside>
         <div class="rounded-3xl border border-royalGreen/10 bg-warmSand/45 p-4 shadow-soft md:p-7">
           <p class="eyebrow">Travel forms</p>
-          <h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Prepare Your Journey</h2>
+          <h2 class="mt-3 font-ui text-4xl font-bold text-royalGreen">Prepare Your Journey</h2>
           <form id="client-forms" class="mt-6 grid gap-4">
             <div class="grid gap-4 md:grid-cols-2">
               <label class="form-control"><span class="label-text font-bold">Personal information</span><input name="personalName" class="form-field" value="${escapeHtml(form.personalName || booking.fullName)}" required /></label>
