@@ -1,13 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap");
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --font-heading: 'Playfair Display', serif;
-    --font-body: 'Manrope', sans-serif;
+    --font-heading: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --font-body: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   }
 
   html {
@@ -31,7 +29,8 @@
   .font-heading,
   .heading-font {
     font-family: var(--font-heading);
-    letter-spacing: -0.035em;
+    letter-spacing: -0.02em;
+    font-weight: 800;
   }
 
   h3,
@@ -45,6 +44,11 @@
   textarea,
   label,
   table,
+  .card,
+  .badge,
+  .dashboard,
+  .client-portal,
+  .admin-panel,
   .font-ui {
     font-family: var(--font-body);
     letter-spacing: -0.02em;
@@ -79,7 +83,7 @@
   }
 
   .eyebrow {
-    @apply font-ui text-xs font-bold uppercase tracking-[0.25em] text-royalGold md:text-sm;
+    @apply font-ui text-xs font-bold uppercase tracking-[0.2em] text-royalGold md:text-sm;
   }
 
   .premium-card {
@@ -96,10 +100,6 @@
 
   .btn-outline-royal {
     @apply btn font-ui text-sm font-semibold tracking-wide border-royalGreen bg-transparent text-royalGreen hover:border-royalGreen hover:bg-royalGreen hover:text-ivory md:text-[15px];
-  }
-
-  .btn-ghost-royal {
-    @apply btn border border-white/30 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen;
   }
 
   .form-field {

@@ -14,9 +14,9 @@ export default {
         savannah: "#8A5A32"
       },
       fontFamily: {
-        heading: ["Playfair Display", "serif"],
-        body: ["Manrope", "Inter", "sans-serif"],
-        ui: ["Manrope", "Inter", "sans-serif"]
+        heading: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+        body: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Arial", "sans-serif"],
+        ui: ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Arial", "sans-serif"]
       },
       boxShadow: {
         premium: "0 24px 70px rgba(17, 17, 17, 0.14)",
