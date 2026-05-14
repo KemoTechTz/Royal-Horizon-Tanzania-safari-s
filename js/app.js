@@ -89,7 +89,7 @@ function renderHome(root) {
               <p class="mt-6 max-w-2xl text-base leading-8 text-ivory/90 md:text-xl">${escapeHtml(slide.text)}</p>
               <div class="mt-9 flex flex-col gap-3 sm:flex-row">
                 <a href="${slide.primary.href}" class="btn-royal">${escapeHtml(slide.primary.label)}</a>
-                <a href="${slide.secondary.href}" class="btn border-white/40 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">${escapeHtml(slide.secondary.label)}</a>
+                <a href="${slide.secondary.href}" class="btn-ghost-royal">${escapeHtml(slide.secondary.label)}</a>
               </div>
               <div class="mt-10 flex flex-wrap gap-3">
                 ${["Locally Owned", "Direct Booking", "No Middlemen", "Group & Private Tours", "Transparent Pricing"]
