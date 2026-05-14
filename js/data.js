@@ -1,3 +1,6 @@
+import kilimanjaroImg from "../asset/image/kilimanjaro.png";
+
+
 export const STORAGE_KEYS = {
   bookings: "rh_bookings",
   enquiries: "rh_enquiries",
@@ -37,7 +40,7 @@ export const LANGUAGES = [
 ];
 
 export const imageLibrary = {
-  kilimanjaro: ../assets/images/kilimanjaro.png,
+  kilimanjaro: kilimanjaroImg,
   kilimanjaroTrail: "https://images.unsplash.com/photo-1521334884684-d80222895322?auto=format&fit=crop&w=1600&q=82",
   safari: "https://images.unsplash.com/photo-1516426122078-c23e76319801?auto=format&fit=crop&w=1920&q=82",
   lion: "https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=1600&q=82",
