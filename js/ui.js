@@ -78,76 +78,63 @@ export function renderNavbar() {
   const currency = getCurrency();
   const language = getLanguage();
   target.innerHTML = `
-    <div class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/96 text-ivory shadow-lg backdrop-blur">
-      <div class="container-pad">
-        <div class="navbar min-h-[76px] px-0">
-          <div class="navbar-start gap-3">
-            <button class="btn btn-ghost px-2 text-ivory lg:hidden" id="mobile-menu-toggle" aria-label="Open menu">
-              <span class="text-2xl leading-none">Menu</span>
-            </button>
-            <a href="index.html" class="flex items-center gap-3">
-              <span class="grid h-12 w-12 place-items-center rounded-full border border-royalGold/50 bg-ivory text-lg font-black text-royalGreen">RH</span>
-              <span class="leading-tight">
-                <span class="block font-heading text-xl font-bold tracking-normal">Royal Horizon</span>
-                <span class="block text-xs font-semibold uppercase tracking-[0.22em] text-royalGold">Tours Tanzania</span>
-              </span>
-            </a>
-          </div>
-          <nav class="navbar-center hidden lg:flex">
-            <ul class="menu menu-horizontal items-center gap-1 px-1 text-sm font-bold">
-              <li class="dropdown dropdown-hover">
-                <button class="${activeClass("kilimanjaro.html")}">Services</button>
-                <ul class="dropdown-content menu z-[60] mt-3 w-72 rounded-box bg-ivory p-3 text-charcoal shadow-premium">
-                  <li><a href="kilimanjaro.html">Kilimanjaro Climbs</a></li>
-                  <li><a href="safaris.html">Signature Tanzania Safaris</a></li>
-                  <li><a href="reasons-to-trust-us.html#signature-experience">Signature Royal Experience</a></li>
-                  <li><a href="day-trips.html">Day Trips</a></li>
-                </ul>
-              </li>
+  <div id="main-nav-wrap" class="sticky top-0 z-50 border-b border-white/10 bg-royalGreen/95 text-ivory shadow-lg backdrop-blur">
+    <div class="container-pad">
+      <div class="flex min-h-[68px] items-center justify-between gap-3 lg:min-h-[74px]">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <span class="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-royalGold/50 bg-ivory text-sm font-black text-royalGreen lg:h-11 lg:w-11">RH</span>
+          <span class="text-[15px] font-semibold leading-tight sm:text-base">Royal Horizon <span class="hidden sm:inline">Tours</span></span>
+        </a>
+        <div class="flex items-center gap-2 lg:hidden">
+          <a href="booking.html" class="btn-royal btn-sm rounded-xl px-3">Book</a>
+          <button id="mobile-menu-toggle" class="btn btn-ghost btn-sm border border-white/20 text-ivory" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-drawer">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+
+        <div class="hidden lg:flex lg:flex-1 lg:items-center lg:justify-between lg:pl-8">
+          <nav>
+            <ul class="menu menu-horizontal gap-1 px-0 text-[15px] font-semibold">
+              <li><a class="${activeClass("index.html")}" href="index.html">Home</a></li>
+              <li class="dropdown dropdown-hover dropdown-bottom"><button class="${activeClass("kilimanjaro.html")}">Services</button><ul class="dropdown-content menu z-[70] mt-3 w-72 rounded-2xl border border-royalGreen/10 bg-ivory p-2 text-charcoal shadow-premium"><li><a href="kilimanjaro.html">Climb Kilimanjaro</a></li><li><a href="safaris.html">Signature Tanzania Safaris</a></li><li><a href="reasons-to-trust-us.html#signature-experience">Signature Royal Experience</a></li><li><a href="day-trips.html">Day Trips</a></li></ul></li>
+              <li><a class="${activeClass("destinations.html")}" href="destinations.html">Destinations</a></li>
               <li><a class="${activeClass("blog.html")}" href="blog.html">Blogs</a></li>
-              <li><a class="${activeClass("about.html")}" href="about.html">About Us</a></li>
+              <li><a class="${activeClass("about.html")}" href="about.html">About</a></li>
               <li><a class="${activeClass("contact.html")}" href="contact.html">Contact</a></li>
-              <li><a class="${activeClass("connect-expert.html")}" href="connect-expert.html">Connect to Our Expert</a></li>
             </ul>
           </nav>
-          <div class="navbar-end hidden gap-2 lg:flex">
-            <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">
-              ${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}
-            </select>
-            <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">
-              ${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}
-            </select>
-            <a href="booking.html" class="btn-royal btn-sm">Book Now</a>
-          </div>
-        </div>
-        <div id="mobile-menu" class="hidden border-t border-white/10 py-4 lg:hidden">
-          <div class="grid gap-2 text-sm font-bold">
-            <a href="kilimanjaro.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Kilimanjaro Climbs</a>
-            <a href="safaris.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Signature Tanzania Safaris</a>
-            <a href="reasons-to-trust-us.html#signature-experience" class="rounded-xl px-3 py-3 hover:bg-white/10">Signature Royal Experience</a>
-            <a href="day-trips.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Day Trips</a>
-            <a href="destinations.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Destinations</a>
-            <a href="blog.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Blogs</a>
-            <a href="about.html" class="rounded-xl px-3 py-3 hover:bg-white/10">About Us</a>
-            <a href="contact.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Contact</a>
-            <a href="connect-expert.html" class="rounded-xl px-3 py-3 hover:bg-white/10">Connect to Our Expert</a>
-            <div class="grid grid-cols-2 gap-3 px-3 pt-2">
-              <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">
-                ${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}
-              </select>
-              <select class="select select-sm border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">
-                ${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}
-              </select>
-            </div>
+          <div class="flex items-center gap-2">
+            <a href="connect-expert.html" class="btn btn-sm rounded-xl border-white/35 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Plan With Expert</a>
+            <a href="booking.html" class="btn-royal btn-sm rounded-xl">Book Now</a>
+            <div class="dropdown dropdown-end"><button class="btn btn-sm rounded-xl border-white/25 bg-white/10 text-ivory">Portal</button><ul class="dropdown-content menu z-[70] mt-2 w-48 rounded-xl border border-royalGreen/10 bg-ivory p-2 text-charcoal shadow-soft"><li><a href="client-portal.html">Client Portal</a></li><li><a href="admin.html">Admin</a></li></ul></div>
+            <div class="dropdown dropdown-end"><button class="btn btn-sm rounded-xl border-white/25 bg-white/10 text-ivory">Settings</button><div class="dropdown-content z-[70] mt-2 w-56 rounded-xl border border-royalGreen/10 bg-ivory p-3 text-charcoal shadow-soft"><label class="text-xs font-bold uppercase tracking-wide text-royalGreen">Currency</label><select class="form-select mt-1" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><label class="mt-3 text-xs font-bold uppercase tracking-wide text-royalGreen">Language</label><select class="form-select mt-1" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div></div>
           </div>
         </div>
       </div>
     </div>
-  `;
+  </div>
+  <div id="mobile-drawer-backdrop" class="fixed inset-0 z-[60] hidden bg-charcoal/50 lg:hidden"></div>
+  <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto custom-scrollbar bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
+    <div class="flex items-center justify-between border-b border-white/15 pb-4"><p class="text-lg font-semibold">Royal Horizon Tours</p><button id="mobile-menu-close" class="btn btn-ghost btn-sm text-ivory" aria-label="Close navigation menu">✕</button></div>
+    <nav class="mt-5 grid gap-1 text-lg">
+      ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Client Portal','client-portal.html'],['Admin','admin.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
+      <details class="mt-1 rounded-xl border border-white/15 px-3 py-2"><summary class="cursor-pointer text-base font-semibold">Services</summary><div class="mt-2 grid gap-2 text-base"><a href="kilimanjaro.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Climb Kilimanjaro</a><a href="safaris.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Tanzania Safaris</a><a href="reasons-to-trust-us.html#signature-experience" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Royal Experience</a><a href="day-trips.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Day Trips</a></div></details>
+    </nav>
+    <div class="mt-6 grid gap-3 rounded-2xl border border-white/15 p-4"><select class="select border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><select class="select border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div>
+    <div class="mt-6 grid gap-3"><a href="connect-expert.html" class="btn rounded-xl border-white/35 bg-white/10 text-ivory">Plan My Adventure</a><a href="booking.html" class="btn-royal rounded-xl">Start Booking</a></div>
+  </aside>`;
 
-  document.getElementById("mobile-menu-toggle")?.addEventListener("click", () => {
-    document.getElementById("mobile-menu")?.classList.toggle("hidden");
-  });
+  const drawer = document.getElementById("mobile-drawer");
+  const backdrop = document.getElementById("mobile-drawer-backdrop");
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const closeBtn = document.getElementById("mobile-menu-close");
+  const openMenu = () => { drawer?.classList.remove("hidden"); backdrop?.classList.remove("hidden"); document.body.classList.add("overflow-hidden"); toggle?.setAttribute("aria-expanded", "true"); };
+  const closeMenu = () => { drawer?.classList.add("hidden"); backdrop?.classList.add("hidden"); document.body.classList.remove("overflow-hidden"); toggle?.setAttribute("aria-expanded", "false"); };
+  toggle?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => link.addEventListener("click", closeMenu));
+  window.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
   bindPreferenceSwitches();
 }
 
@@ -269,7 +256,7 @@ export function openModal(title, bodyHtml, actionsHtml = "") {
     document.body.appendChild(modal);
   }
   modal.innerHTML = `
-    <div class="modal-box max-w-3xl bg-ivory">
+    <div class="modal-box custom-scrollbar max-h-[85vh] overflow-y-auto max-w-3xl bg-ivory">
       <form method="dialog">
         <button class="btn btn-sm btn-circle btn-ghost absolute right-3 top-3" aria-label="Close">x</button>
       </form>
@@ -352,15 +339,15 @@ export function sectionHeader(eyebrow, title, text = "") {
 }
 
 export function renderHero({ eyebrow = "Royal Horizon Tours", title, text, image, primary, secondary, compact = false }) {
-  const heightClass = compact ? "min-h-[420px]" : "min-h-[620px]";
+  const heightClass = compact ? "min-h-[460px]" : "min-h-[680px]";
   return `
-    <section class="relative ${heightClass} overflow-hidden bg-royalGreen text-ivory">
-      <img src="${image}" alt="${escapeHtml(title)}" class="absolute inset-0 h-full w-full object-cover" />
+    <section class="hero-shell ${heightClass}">
+      <img src="${image}" alt="${escapeHtml(title)} in Tanzania" class="hero-media object-[center_35%]" loading="lazy" />
       <div class="hero-overlay absolute inset-0"></div>
-      <div class="container-pad relative flex ${heightClass} items-center py-20">
+      <div class="hero-content ${heightClass}">
         <div class="max-w-3xl">
           <p class="eyebrow">${escapeHtml(eyebrow)}</p>
-          <h1 class="mt-5 font-heading text-5xl font-bold leading-tight text-balance md:text-7xl">${escapeHtml(title)}</h1>
+          <h1 class="hero-heading text-balance">${escapeHtml(title)}</h1>
           <p class="mt-6 max-w-2xl text-lg leading-8 text-ivory/82">${escapeHtml(text)}</p>
           <div class="mt-9 flex flex-col gap-3 sm:flex-row">
             ${primary ? `<a href="${primary.href}" class="btn-royal">${escapeHtml(primary.label)}</a>` : ""}
@@ -379,7 +366,7 @@ export function renderServiceCards(items = serviceCards) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-64 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-64 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
             <p class="mt-3 min-h-24 text-sm leading-7 text-charcoal/70">${escapeHtml(item.text)}</p>
@@ -399,7 +386,7 @@ export function renderRouteCards(items = kilimanjaroRoutes) {
         .map(
           (route) => `
         <article class="premium-card overflow-hidden">
-          <img src="${route.image}" alt="${escapeHtml(route.name)}" class="h-56 w-full object-cover" />
+          <img src="${route.image}" alt="${escapeHtml(route.name)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <div class="flex items-start justify-between gap-4">
               <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(route.name)}</h3>
@@ -430,7 +417,7 @@ export function renderSafariCards(items = safariPackages) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden" data-category="${escapeHtml(item.category)}">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <div class="flex items-start justify-between gap-4">
               <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
@@ -459,7 +446,7 @@ export function renderDayTripCards(items = dayTrips) {
         .map(
           (trip) => `
         <article class="premium-card overflow-hidden">
-          <img src="${trip.image}" alt="${escapeHtml(trip.title)}" class="h-56 w-full object-cover" />
+          <img src="${trip.image}" alt="${escapeHtml(trip.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(trip.title)}</h3>
             <p class="mt-2 text-sm font-bold text-sunset">${escapeHtml(trip.location)} - ${escapeHtml(trip.duration)}</p>
@@ -484,7 +471,7 @@ export function renderDestinationCards(items = destinations) {
         .map(
           (item) => `
         <article class="premium-card overflow-hidden">
-          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover" />
+          <img src="${item.image}" alt="${escapeHtml(item.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <h3 class="font-heading text-3xl font-bold text-royalGreen">${escapeHtml(item.title)}</h3>
             <p class="mt-3 text-sm leading-7 text-charcoal/70">${escapeHtml(item.overview.slice(0, 165))}...</p>
@@ -504,7 +491,7 @@ export function renderBlogCards(items = blogPosts) {
         .map(
           (post) => `
         <article class="premium-card overflow-hidden" data-category="${escapeHtml(post.category)}" data-title="${escapeHtml(post.title.toLowerCase())}">
-          <img src="${post.image}" alt="${escapeHtml(post.title)}" class="h-56 w-full object-cover" />
+          <img src="${post.image}" alt="${escapeHtml(post.title)}" class="h-56 w-full object-cover object-center" />
           <div class="p-6">
             <p class="text-xs font-extrabold uppercase tracking-[0.16em] text-sunset">${escapeHtml(post.category)}</p>
             <h3 class="mt-3 font-heading text-3xl font-bold leading-tight text-royalGreen">${escapeHtml(post.title)}</h3>
