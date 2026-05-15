@@ -161,13 +161,11 @@ export function renderFooter() {
   const target = document.getElementById("site-footer");
   if (!target) return;
   target.innerHTML = `
-    <section class="bg-warmSand/35 py-14">
+    <section class="bg-warmSand/30 py-16 md:py-20 lg:py-24">
       <div class="container-pad text-center">
-        <p class="eyebrow">Trusted Travel Standards</p>
-        <h2 class="mt-3 text-3xl font-bold text-royalGreen md:text-4xl">Trusted, Responsible & Locally Connected</h2>
-        <p class="mx-auto mt-4 max-w-4xl text-charcoal/75">Royal Horizon Tours is built around responsible travel, transparent planning, and trusted Tanzania expertise. Our partnerships, review presence, and tourism values help every guest travel with more confidence.</p>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          ${[["APTA","Tourism Network","assets/images/badges/apta-badge.svg","APTA tourism network badge"],["TripAdvisor","Guest Reviews","assets/images/badges/tripadvisor-badge.svg","TripAdvisor guest review badge"],["Leave No Trace","Responsible Travel","assets/images/badges/leave-no-trace-badge.svg","Leave No Trace responsible travel partner badge"],["Tanzania Tourist Board","Tanzania Tourism","assets/images/badges/tanzania-tourist-board-badge.svg","Tanzania Tourist Board tourism badge"]].map(([name,label,src,alt])=>`<article class="rounded-2xl border border-royalGreen/10 bg-ivory p-5 shadow-soft"><img src="${src}" alt="${alt}" class="mx-auto h-16 w-full object-contain" loading="lazy" /><h3 class="mt-3 text-base font-bold text-royalGreen">${name}</h3><p class="text-sm text-charcoal/70">${label}</p></article>`).join("")}
+        <h2 class="text-2xl font-bold text-royalGreen md:text-3xl">Trusted Travel Standards</h2>
+        <div class="mx-auto mt-10 grid max-w-5xl grid-cols-1 place-items-center gap-y-10 sm:grid-cols-2 sm:gap-x-12 md:gap-y-12 lg:grid-cols-4 lg:gap-x-14">
+          ${[["assets/images/badges/apta-badge.svg","APTA logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"],["assets/images/badges/tripadvisor-badge.svg","TripAdvisor logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"],["assets/images/badges/leave-no-trace-badge.svg","Leave No Trace logo","h-12 md:h-14 lg:h-16 max-w-[145px] md:max-w-[165px] lg:max-w-[185px]"],["assets/images/badges/tanzania-tourist-board-badge.svg","Tanzania Tourist Board logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"]].map(([src,alt,size])=>`<img src="${src}" alt="${alt}" class="w-auto object-contain ${size} opacity-85 transition duration-300 ease-out hover:scale-[1.03] hover:opacity-100" loading="lazy" />`).join("")}
         </div>
       </div>
     </section>

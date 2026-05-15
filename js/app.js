@@ -249,9 +249,13 @@ function renderKilimanjaro(root) {
       secondary: { label: "Ask an Expert", href: "connect-expert.html" }
     })}
     <section class="section-pad">
-      <div class="container-pad grid gap-10 lg:grid-cols-[1fr_0.8fr]">
-        <div>${sectionHeader("Mountain Overview", "Mount Kilimanjaro Is Not Technical, But It Is Serious", "The climb asks for patience, pacing, hydration, and a crew that knows when to slow down. Royal Horizon builds every climb around acclimatization and calm support.")}</div>
-        <div class="dark-card p-7"><h3 class="font-heading text-3xl font-bold">Sample 7 Day Rhythm</h3>${list(["Forest entry and first camp", "Moorland ascent", "Acclimatization via Lava Tower", "Barranco Wall and Karanga", "Barafu summit preparation", "Uhuru Peak attempt", "Final descent and crew farewell"])}</div>
+      <div class="container-pad grid gap-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+        <div class="lg:sticky lg:top-24">${sectionHeader("Climb Rhythm", "7-Day Summit Rhythm", "Every Kilimanjaro climb is shaped by pace, weather, route conditions, and how your body responds to altitude. This rhythm gives travellers a clear idea of how a well-paced 7-day climb can unfold, from forest entry to summit night and final descent.")}</div>
+        <div class="rounded-3xl border border-royalGold/30 bg-royalGreen p-5 shadow-premium md:p-7">
+          <div class="relative grid gap-4 md:gap-5 md:pl-8 before:hidden md:before:absolute md:before:bottom-4 md:before:left-3 md:before:top-4 md:before:block md:before:w-px md:before:bg-royalGold/35">
+            ${[["01","Forest Entry & First Camp","Begin at the park gate, complete registration, meet the mountain crew, and walk through lush montane forest to the first overnight camp.","Forest zone"],["02","Moorland Ascent","Leave the forest zone behind and continue into open moorland with wider mountain views, unique vegetation, and a steady climb.","Steady pace"],["03","Acclimatization via Lava Tower","Climb high toward Lava Tower for acclimatization, then descend lower to support better altitude adjustment.","Acclimatization"],["04","Barranco Wall & Karanga Valley","Tackle the famous Barranco Wall, cross dramatic ridgelines, and continue toward Karanga for recovery and acclimatization.","Technical section"],["05","Barafu Summit Preparation","Move to Barafu Camp, rest, hydrate, organize summit gear, and prepare for the midnight summit push.","Summit prep"],["06","Uhuru Peak Attempt","Begin before midnight, climb toward Stella Point, continue to Uhuru Peak, then descend to a lower camp for recovery.","Summit push"],["07","Final Descent & Farewell","Descend through the forest, sign out at the gate, receive congratulations, and transfer back for rest.","Final descent"]].map(([day,title,text,detail],index)=>`<article data-rhythm-card style="opacity:0; transform: translateY(10px);" class="relative rounded-2xl border border-royalGreen/20 bg-ivory p-5 text-charcoal shadow-soft transition duration-300 hover:-translate-y-1 hover:shadow-premium md:p-6"><div class="flex flex-wrap items-center justify-between gap-2"><p class="text-xs font-bold uppercase tracking-[0.16em] text-royalGold">Day ${day}</p><span class="rounded-full bg-warmSand/70 px-3 py-1 text-xs font-semibold text-royalGreen">${detail}</span></div><h3 class="mt-3 font-heading text-2xl font-bold text-royalGreen">${title}</h3><p class="mt-3 text-[15px] leading-7 text-charcoal">${text}</p><span class="absolute -left-[1.05rem] top-6 hidden h-2.5 w-2.5 rounded-full border border-royalGold/60 bg-royalGold md:block"></span></article>`).join("")}
+          </div>
+        </div>
       </div>
     </section>
     <section class="section-pad bg-warmSand/35">
@@ -583,6 +587,24 @@ function renderPolicy(root, type) {
   `;
 }
 
+
+function initRhythmCards() {
+  const cards = document.querySelectorAll("[data-rhythm-card]");
+  if (!cards.length) return;
+  const observer = new IntersectionObserver((entries, instance) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.style.opacity = "1";
+      entry.target.style.transform = "translateY(0)";
+      instance.unobserve(entry.target);
+    });
+  }, { threshold: 0.18, rootMargin: "0px 0px -40px 0px" });
+  cards.forEach((card, index) => {
+    card.style.transitionDelay = `${Math.min(index * 70, 360)}ms`;
+    observer.observe(card);
+  });
+}
+
 function init() {
   seedDemoData();
   renderNavbar();
@@ -617,6 +639,7 @@ function init() {
     "privacy-policy": (target) => renderPolicy(target, "privacy")
   };
   (routes[page] || renderHome)(root);
+  initRhythmCards();
   updateCurrencyPrices();
 }
 
