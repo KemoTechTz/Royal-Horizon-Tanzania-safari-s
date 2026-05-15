@@ -57,7 +57,7 @@ export const imageLibrary = {
   arusha: "/assets/images/arusha.png",
   chemka: "/assets/images/chemkahotspring.png",
   planning: "/assets/images/planning.png",
-  lekechala: "/assets/images/lakechala.png",
+  lakechala: "/assets/images/lakechala.png",
   lakemanyara: "/assets/images/lakemanyara.png",
   marangu: "/assets/images/maranguwaterfall.png",
   materuni: "/assets/images/materuniwaterfall.png"
