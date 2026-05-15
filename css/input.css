@@ -156,7 +156,26 @@
   }
 }
 
+.hero-container {
+  width: 100%;
+  height: 80vh; /* Adjust height for your hero section */
+  overflow: hidden;
+  position: relative;
+}
 
+.kilimanjaro-pan {
+  width: 120%; /* Makes image wider than container to allow panning */
+  height: 100%;
+  background-image: url('your-image-link.jpg');
+  background-size: cover;
+  background-position: center;
+  animation: slowPan 20s linear infinite alternate;
+}
+
+@keyframes slowPan {
+  from { transform: translateX(-10%); }
+  to { transform: translateX(0%); }
+}
 @layer components {
   .hero-shell { @apply relative overflow-hidden bg-royalGreen text-ivory; }
   .hero-media { @apply absolute inset-0 h-full w-full object-cover; }
