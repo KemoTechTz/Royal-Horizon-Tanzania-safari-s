@@ -41,20 +41,20 @@ export const LANGUAGES = [
 
 export const imageLibrary = {
   kilimanjaro: "/assets/images/kilimanjaro.png",
-  kilimanjaroTrail: "/asset/image/kilimanjaroTrail.png",
-  safari: "/asset/image/safari.png",
-  lion: "/asset/image/lion.png",
-  elephant: "/asset/image/elephant.png",
-  travellers: "/asset/image/travellers.png",
-  camp: "/asset/image/camp.png",
-  zanzibar: "/asset/image/zanzibar.png",
-  waterfall: "/asset/image/waterfall.png",
-  hotSprings: "/asset/image/hotSprings.png",
-  coffee: "/asset/image/coffee.png",
-  crater: "/asset/image/crater.png",
-  culture: "/asset/image/culture.png",
-  lodge: "/asset/image/lodge.png",
-  planning: "/asset/image/planning.png"
+  kilimanjaroTrail: "/assets/images/KilimanjaroTrails.png",
+  safari: "/assets/images/safari.png",
+  lion: "/assets/images/lion.png",
+  elephant: "/assets/images/elephant.png",
+  travellers: "/assets/images/travellers.png",
+  camp: "/assets/images/camping.png",
+  zanzibar: "/assets/images/zanzibar.png",
+  waterfall: "/assets/images/waterfall.png",
+  hotSprings: "/assets/images/hotSprings.png",
+  coffee: "/assets/images/cofee.png",
+  crater: "/assets/images/creater.png",
+  culture: "/assets/images/culture.png",
+  lodge: "/assets/images/lodge.png",
+  planning: "/assets/images/planning.png"
 };
 
 export const heroSlides = [
