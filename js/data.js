@@ -46,7 +46,7 @@ export const imageLibrary = {
   lion: "/assets/images/lion.png",
   elephant: "/assets/images/elephant.png",
   travellers: "/assets/images/travellers.png",
-  camping: "/assets/images/camping.png",
+  camp: "/assets/images/Camping.png",
   zanzibar: "/assets/images/zanzibar.png",
   waterfall: "/assets/images/waterfall.png",
   hotSprings: "/assets/images/hotSprings.png",
@@ -75,7 +75,7 @@ export const heroSlides = [
   {
     title: "Direct Bookings. Transparent Prices. Real Adventure.",
     text: "Transparent pricing does not mean cheap. It means you understand what you are paying for, who is supporting you, and how your trip is handled.",
-    image: imageLibrary.camping,
+    image: imageLibrary.camp,
     primary: { label: "Start Booking", href: "booking.html" },
     secondary: { label: "Why Trust Us", href: "reasons-to-trust-us.html" }
   },
