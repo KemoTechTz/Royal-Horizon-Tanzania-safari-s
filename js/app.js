@@ -258,6 +258,16 @@ function renderKilimanjaro(root) {
         </div>
       </div>
     </section>
+    <section class="section-pad pt-0">
+      <div class="container-pad">
+        <a href="summit-readiness.html" class="btn-royal">Check Your Summit Readiness</a>
+      </div>
+    </section>
+    <section class="section-pad pt-0">
+      <div class="container-pad">
+        <a href="summit-readiness.html" class="btn-royal">Try the Kilimanjaro Readiness Check</a>
+      </div>
+    </section>
     <section class="section-pad bg-warmSand/35">
       <div class="container-pad grid gap-6 md:grid-cols-3">
         <article class="premium-card p-7"><h3 class="font-heading text-3xl font-bold text-royalGreen">What to Pack</h3><p class="mt-3 leading-7 text-charcoal/70">Layering, boots, headlamp, waterproof shell, warm gloves, snacks, and a realistic gear check before arrival.</p><a href="connect-expert.html" class="btn-outline-royal mt-6">Request Packing Help</a></article>
@@ -501,6 +511,82 @@ function renderBlogDetail(root) {
   `;
 }
 
+
+function renderSummitReadiness(root) {
+  setPageTitle("Kilimanjaro Summit Readiness Check");
+  root.innerHTML = `
+    ${renderHero({ eyebrow: "Kilimanjaro Planning Tool", title: "Kilimanjaro Summit Readiness Check", text: "Answer a few simple questions about your fitness, altitude experience, route choice, and climb pace. Royal Horizon will give you a practical preparation profile to help you choose a safer and better-paced Kilimanjaro itinerary.", image: imageLibrary.kilimanjaroTrail, primary: { label: "Start Readiness Check", href: "#readiness-form" }, secondary: { label: "Talk to Expert", href: "connect-expert.html" }, compact: true })}
+    <section class="section-pad">
+      <div class="container-pad grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <form id="readiness-form" class="rounded-3xl border border-royalGreen/10 bg-ivory p-6 shadow-soft md:p-8" novalidate>
+          <h2 class="font-heading text-4xl font-bold text-royalGreen">Plan Your Climb Readiness</h2>
+          <p class="mt-4 rounded-2xl border border-royalGold/35 bg-warmSand/45 p-4 text-sm leading-7 text-charcoal">This readiness check is for travel planning only. It does not guarantee summit success and does not replace medical advice. Kilimanjaro performance depends on altitude response, weather, route pace, sleep, hydration, health condition, and guide decisions.</p>
+          <div id="readiness-errors" class="mt-4 hidden rounded-xl border border-red-200 bg-red-100 p-3 text-sm text-red-800" role="alert"></div>
+          <div class="mt-6 grid gap-5 md:grid-cols-2">
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Unit system</span><select name="unit" class="form-select" required><option value="metric">Metric</option><option value="us">US units</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Age</span><input name="age" type="number" min="12" max="85" class="form-field" required /></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Gender</span><select name="gender" class="form-select" required><option>Male</option><option>Female</option><option>Prefer not to say</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Choose route</span><select name="route" class="form-select" required><option value="lemosho">Lemosho Route — 7 Days</option><option value="machame">Machame Route — 7 Days</option><option value="marangu">Marangu Route — 6 Days</option><option value="rongai">Rongai Route — 7 Days</option><option value="northern">Northern Circuit — 9 Days</option><option value="umbwe">Umbwe Route — 6 Days</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Height (cm)</span><input name="heightCm" type="number" class="form-field" required /></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Weight (kg)</span><input name="weightKg" type="number" class="form-field" required /></label>
+            <label class="grid gap-2 hidden" data-us-field><span class="text-sm font-semibold text-royalGreen">Height (feet)</span><input name="heightFt" type="number" class="form-field" /></label>
+            <label class="grid gap-2 hidden" data-us-field><span class="text-sm font-semibold text-royalGreen">Height (inches)</span><input name="heightIn" type="number" class="form-field" /></label>
+            <label class="grid gap-2 hidden" data-us-field><span class="text-sm font-semibold text-royalGreen">Weight (lbs)</span><input name="weightLbs" type="number" class="form-field" /></label>
+          </div>
+          <fieldset class="mt-6">
+            <legend class="text-sm font-semibold text-royalGreen">Fitness / stamina</legend>
+            <div class="mt-2 grid gap-2 sm:grid-cols-2">${[["poor","Poor: I rarely exercise"],["fair","Fair: I can walk 2–5 km"],["good","Good: I can hike 5–10 km"],["excellent","Excellent: I train regularly / hike often"]].map(([v,l],i)=>`<label class="rounded-xl border border-royalGreen/15 bg-white px-3 py-2 text-sm"><input ${i===2?"checked":""} class="mr-2" type="radio" name="fitness" value="${v}" />${l}</label>`).join("")}</div>
+          </fieldset>
+          <div class="mt-5 grid gap-5 md:grid-cols-2">
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Training frequency</span><select name="training" class="form-select"><option value="0">0 days per week</option><option value="1-2">1–2 days per week</option><option value="3-4">3–4 days per week</option><option value="5+">5+ days per week</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Altitude experience above 3,000m in last 12 months</span><select name="altitude" class="form-select"><option value="no">No</option><option value="yes">Yes</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Completed multi-day hike before</span><select name="trek" class="form-select"><option value="no">No</option><option value="yes">Yes</option></select></label>
+            <label class="grid gap-2"><span class="text-sm font-semibold text-royalGreen">Health caution</span><select name="health" class="form-select"><option value="no">No</option><option value="yes">Yes</option></select></label>
+          </div>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <button class="btn-royal" type="submit">Calculate Readiness</button>
+            <button class="btn-outline-royal" type="button" id="clear-readiness">Clear</button>
+          </div>
+        </form>
+        <aside class="grid gap-5">
+          <article class="premium-card overflow-hidden"><img src="${imageLibrary.kilimanjaro}" alt="Kilimanjaro trekking trail" class="h-64 w-full object-cover" /><div class="p-5"><h3 class="font-heading text-2xl font-bold text-royalGreen">Before You Book</h3><p class="mt-2 text-[15px] leading-7 text-charcoal/80">Steady pace, hydration, and conservative route planning are the three habits we reinforce on every climb.</p></div></article>
+          <article class="dark-card p-6"><h3 class="font-heading text-2xl font-bold">Recommended climb rhythm</h3><p class="mt-3 text-ivory/90">Most travellers do better on 7–9 day itineraries that protect acclimatization and recovery.</p><a href="kilimanjaro.html" class="btn-royal mt-5">View Route Options</a></article>
+        </aside>
+      </div>
+    </section>
+    <section id="readiness-result" class="section-pad pt-0" aria-live="polite"></section>
+    <section class="section-pad bg-warmSand/35">
+      <div class="container-pad">
+        ${sectionHeader("Route Guidance", "Recommended Routes for Better Acclimatization", "Longer and better-paced routes often support safer adjustment to altitude.")}
+        <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          ${[["Northern Circuit","Best for maximum acclimatization","route-detail.html?route=northern-circuit"],["Lemosho","Scenic and balanced","route-detail.html?route=lemosho"],["Machame","Popular and adventurous","route-detail.html?route=machame"],["Rongai","Quieter northern approach","route-detail.html?route=rongai"]].map(([name,desc,href])=>`<article class="premium-card p-6"><h3 class="font-heading text-2xl font-bold text-royalGreen">${name}</h3><p class="mt-2 text-sm leading-7 text-charcoal/75">${desc}</p><a href="${href}" class="btn-outline-royal mt-5">View Route</a></article>`).join("")}
+        </div>
+      </div>
+    </section>
+    ${ctaBand("Want a guide to review your readiness profile?", "Send your travel month and route preference. We will suggest pacing, preparation priorities, and the most suitable itinerary length.", "connect-expert.html", "booking.html")}
+  `;
+  setupReadinessCheck();
+}
+
+function setupReadinessCheck() {
+ const form=document.getElementById("readiness-form"); if(!form) return; const resultWrap=document.getElementById("readiness-result"); const errors=document.getElementById("readiness-errors");
+ const usFields=[...form.querySelectorAll("[data-us-field]")];
+ const unit=form.elements.unit;
+ const toggleUnits=()=>{const isUs=unit.value==="us"; usFields.forEach(el=>el.classList.toggle("hidden",!isUs)); form.elements.heightCm.closest("label").classList.toggle("hidden",isUs); form.elements.weightKg.closest("label").classList.toggle("hidden",isUs);};
+ unit.addEventListener("change",toggleUnits); toggleUnits();
+ const routeMods={northern:12,lemosho:10,machame:8,rongai:7,marangu:2,umbwe:-8};
+ const trainingMods={"0":-10,"1-2":0,"3-4":8,"5+":12}; const fitMods={poor:-15,fair:-5,good:8,excellent:15};
+ function renderResult(r){resultWrap.innerHTML=`<div class="container-pad"><div class="rounded-3xl border border-royalGold/40 bg-royalGreen p-7 text-ivory shadow-premium md:p-10"><p class="text-sm uppercase tracking-[0.16em] text-royalGold">Your Summit Readiness</p><div class="mt-5 grid gap-6 lg:grid-cols-[180px_1fr]"><div class="grid h-40 w-40 place-items-center rounded-full border-4 border-royalGold text-center"><span class="text-5xl font-black text-royalGold">${r.score}%</span></div><div><p class="text-xl font-bold">${r.status}</p><p class="mt-2 text-ivory/90">${r.message}</p><div class="mt-4 grid gap-2 text-sm text-ivory/95"><p><strong class="text-royalGold">Selected Route:</strong> ${r.routeLabel}</p><p><strong class="text-royalGold">BMI:</strong> ${r.bmi.toFixed(1)} — ${r.bmiNote}</p><p><strong class="text-royalGold">Main Strength:</strong> ${r.strength}</p><p><strong class="text-royalGold">Watch Point:</strong> ${r.watch}</p><p><strong class="text-royalGold">Recommended Pace:</strong> ${r.pace}</p></div></div></div><div class="mt-6 rounded-2xl bg-white/10 p-4 text-sm leading-7">${r.advice.join(" ")}</div><p class="mt-4 rounded-2xl border border-white/20 bg-white/10 p-3 text-sm">This readiness check is for travel planning only. It does not guarantee summit success and does not replace medical advice. Kilimanjaro performance depends on altitude response, weather, route pace, sleep, hydration, health condition, and guide decisions.</p><div class="mt-6 flex flex-wrap gap-3"><a href="connect-expert.html" class="btn-royal">Talk to a Kilimanjaro Expert</a><a href="kilimanjaro.html" class="btn border-white/35 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">View Recommended Routes</a><a href="booking.html" class="btn border-white/35 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Start Booking</a><button id="save-readiness" class="btn border-white/35 bg-white/10 text-ivory hover:bg-white hover:text-royalGreen">Save Result</button></div></div></div>`;
+ document.getElementById('save-readiness')?.addEventListener('click',()=>{localStorage.setItem('royalHorizonReadinessResult',JSON.stringify(r));}); }
+ const validate=(d)=>{const e=[]; if(d.age<12||d.age>85)e.push('Age must be between 12 and 85.'); if(d.unit==='metric'){if(d.heightCm<100||d.heightCm>230)e.push('Height must be between 100 and 230 cm.'); if(d.weightKg<30||d.weightKg>250)e.push('Weight must be between 30 and 250 kg.');} else {if(d.heightFt<3||d.heightFt>8)e.push('Height must be between 3 and 8 feet.'); if(d.weightLbs<66||d.weightLbs>550)e.push('Weight must be between 66 and 550 lbs.');} return e;};
+ form.addEventListener('submit',(ev)=>{ev.preventDefault(); const d=Object.fromEntries(new FormData(form).entries()); d.age=Number(d.age); d.heightCm=Number(d.heightCm||0); d.weightKg=Number(d.weightKg||0); d.heightFt=Number(d.heightFt||0); d.heightIn=Number(d.heightIn||0); d.weightLbs=Number(d.weightLbs||0); const errs=validate(d); if(errs.length){errors.classList.remove('hidden'); errors.innerHTML=errs.map(x=>`<p>${x}</p>`).join(''); return;} errors.classList.add('hidden'); let heightM=d.unit==='metric'?d.heightCm/100:((d.heightFt*12+d.heightIn)*0.0254); let weight=d.unit==='metric'?d.weightKg:d.weightLbs*0.453592; const bmi=weight/(heightM*heightM); let score=50; score += bmi>=18.5&&bmi<=27?10:bmi>27&&bmi<=30?5:bmi<18.5?-8:bmi<=35?-8:-15; score += d.age>=18&&d.age<=55?5:d.age>65?-5:d.age<18?-8:0; score += fitMods[d.fitness]; score += trainingMods[d.training]; score += d.altitude==='yes'?8:0; score += d.trek==='yes'?6:0; score += routeMods[d.route]; score += d.health==='yes'?-20:0; score=Math.max(25,Math.min(92,score));
+ const status=score<50?["Needs More Preparation","Your current profile suggests you should prepare more before attempting Kilimanjaro. Focus on endurance training, medical clearance, and a slower route plan."]:score<65?["Developing Readiness","You may be able to prepare for Kilimanjaro with the right training and route choice. A longer itinerary and expert guidance are strongly recommended."]:score<80?["Strong Preparation Profile","Your profile shows a good foundation for a well-paced Kilimanjaro climb. Continue training, choose a route with proper acclimatization, and follow your guide’s health checks."]:["Excellent Preparation Profile","Your profile suggests strong preparation potential for Kilimanjaro. Remember that altitude response is still unpredictable, so pacing, hydration, rest, and guide decisions remain essential."];
+ const pace= d.route==='umbwe'?'Prefer 7+ days or a slower alternative route':'7–9 days with careful acclimatization';
+ const routeLabel=form.elements.route.options[form.elements.route.selectedIndex].text; const advice=[]; if(bmi<18.5) advice.push('Your BMI is below the general recommended range. Consider medical advice before high-altitude trekking and focus on strength, nutrition, and endurance preparation.'); if(bmi>30) advice.push('Your BMI is above the general recommended range. Kilimanjaro may still be possible for some travellers, but preparation, pacing, and medical clearance become more important.'); if(d.health==='yes') advice.push('Because you selected a health concern, medical clearance is strongly recommended before booking a high-altitude climb.'); if(d.fitness==='poor') advice.push('Begin with regular walking, stair training, and gradual hikes before committing to a summit itinerary.'); if(d.route==='umbwe') advice.push('Umbwe is steep and demanding. It is usually better for experienced trekkers. Consider Lemosho, Machame, or Northern Circuit for better acclimatization.'); if(d.route==='marangu') advice.push('Marangu is classic and hut-based, but the shorter profile can feel rushed. Consider adding an acclimatization day if possible.'); if(d.route==='northern') advice.push('Northern Circuit gives excellent acclimatization time and a quieter scenic journey around the mountain.'); if(d.route==='lemosho') advice.push('Lemosho is scenic and well-balanced, with strong acclimatization potential for many travellers.'); if(d.age<18) advice.push('Guardian/medical guidance recommended before planning a high-altitude trek.');
+ const r={score,status:status[0],message:status[1],route:d.route,routeLabel,bmi,bmiNote:bmi>=18.5&&bmi<=27?'within general healthy range':bmi>30?'above general recommended range':'below general recommended range',strength:(d.fitness==='excellent'||d.training==='5+')?'Good endurance and route pacing':'Clear motivation to prepare with structure',watch:d.altitude==='no'?'No recent altitude experience':'Altitude remains unpredictable, maintain conservative pacing',pace,advice:advice.length?advice:['Choose a well-paced route, keep a moderate trekking speed, hydrate consistently, join acclimatization walks, and listen closely to your mountain guide.'],dateCreated:new Date().toISOString(),inputSummary:d,category:status[0],adviceSummary:advice.join(' ')}; renderResult(r); resultWrap.scrollIntoView({behavior:'smooth',block:'start'});});
+ const saved=localStorage.getItem('royalHorizonReadinessResult'); if(saved){try{const r=JSON.parse(saved); resultWrap.innerHTML=`<div class="container-pad"><div class="rounded-2xl border border-royalGreen/15 bg-ivory p-5 shadow-soft"><p class="font-semibold text-royalGreen">Your last readiness check</p><p class="mt-1 text-sm text-charcoal/75">${r.score}% • ${r.category||r.status} • ${r.routeLabel||r.route} • ${new Date(r.dateCreated).toLocaleDateString()}</p><div class="mt-3 flex gap-3"><button id="reopen-last" class="btn-royal btn-sm">Recalculate</button><button id="clear-last" class="btn-outline-royal btn-sm">Clear result</button></div></div></div>`; document.getElementById('reopen-last')?.addEventListener('click',()=>renderResult(r)); document.getElementById('clear-last')?.addEventListener('click',()=>{localStorage.removeItem('royalHorizonReadinessResult'); resultWrap.innerHTML='';});}catch{}}
+ document.getElementById('clear-readiness')?.addEventListener('click',()=>{form.reset(); toggleUnits(); errors.classList.add('hidden');});
+}
 function renderConnectExpert(root) {
   setPageTitle("Connect to Expert");
   root.innerHTML = `
@@ -628,6 +714,7 @@ function init() {
     "reasons-to-trust-us": renderTrust,
     contact: renderContact,
     "connect-expert": renderConnectExpert,
+    "summit-readiness": renderSummitReadiness,
     booking: renderBookingPage,
     "booking-success": renderBookingSuccessPage,
     payment: renderPaymentPage,
