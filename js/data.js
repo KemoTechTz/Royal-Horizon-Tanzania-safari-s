@@ -66,7 +66,7 @@ export const imageLibrary = {
   londorosigate: "/assets/images/londorosigate.png",
   machamegate: "/assets/images/machamegate.png",
   marangugate: "/assets/images/marangugate.png",
-  lemoshogate: "/assets/images/lemosho.png",
+  lemoshogate: "/assets/images/lemoshogate.png",
   notherngate: "/assets/images/notherngate.png"
 };
 
