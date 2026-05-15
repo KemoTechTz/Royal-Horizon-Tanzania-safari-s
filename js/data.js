@@ -54,7 +54,13 @@ export const imageLibrary = {
   crater: "/assets/images/creater.png",
   culture: "/assets/images/culture.png",
   lodge: "/assets/images/lodge.png",
-  planning: "/assets/images/planning.png"
+  arusha: "/assets/images/arusha.png",
+  chemka: "/assets/images/chemkahotspring.png",
+  planning: "/assets/images/planning.png",
+  lekechala: "/assets/images/lakechala.png",
+  lakemanyara: "/assets/images/lakemanyara.png",
+  marangu: "/assets/images/maranguwaterfall.png",
+  materuni: "/assets/images/materuniwaterfall.png"
 };
 
 export const heroSlides = [
@@ -434,7 +440,7 @@ export const dayTrips = [
     duration: "Full day",
     priceFrom: 95,
     location: "Materuni Village, Kilimanjaro",
-    image: imageLibrary.waterfall,
+    image: imageLibrary.materuni,
     overview: "A lush Kilimanjaro foothills day with a waterfall walk, Chagga village hospitality, coffee preparation, and a relaxed local lunch.",
     itinerary: ["Pickup in Moshi", "Guided village walk", "Waterfall visit and swim time if conditions allow", "Coffee experience and local lunch", "Return to hotel"],
     included: dayTripIncluded,
@@ -447,7 +453,7 @@ export const dayTrips = [
     duration: "Half or full day",
     priceFrom: 85,
     location: "Kikuletwa, near Moshi",
-    image: imageLibrary.hotSprings,
+    image: imageLibrary.chemka,
     overview: "Clear blue spring water, shaded fig trees, and an easy-going day that works well after a climb or before safari.",
     itinerary: ["Pickup from Moshi or Arusha", "Drive to Kikuletwa", "Swim and relax at the springs", "Picnic or local lunch", "Return before evening"],
     included: dayTripIncluded,
@@ -460,7 +466,7 @@ export const dayTrips = [
     duration: "Full day",
     priceFrom: 210,
     location: "Arusha",
-    image: imageLibrary.coffee,
+    image: imageLibrary.arusha,
     overview: "A compact national park day with forest, lakes, giraffe, buffalo, colobus monkeys, and optional walking safari with a ranger.",
     itinerary: ["Pickup in Arusha or Moshi", "Park entry and game drive", "Momella Lakes viewpoints", "Optional walking safari", "Return to town"],
     included: dayTripIncluded,
@@ -486,7 +492,7 @@ export const dayTrips = [
     duration: "Full day",
     priceFrom: 120,
     location: "Tanzania-Kenya border",
-    image: imageLibrary.waterfall,
+    image: imageLibrary.lakechala,
     overview: "A crater lake day with dramatic blue water, walking viewpoints, quiet picnic time, and a different side of Kilimanjaro region.",
     itinerary: ["Pickup in Moshi", "Drive to Lake Chala", "Viewpoint walk", "Picnic lunch", "Optional kayaking where available", "Return to Moshi"],
     included: dayTripIncluded,
@@ -499,7 +505,7 @@ export const dayTrips = [
     duration: "Full day",
     priceFrom: 90,
     location: "Marangu, Kilimanjaro",
-    image: imageLibrary.crater,
+    image: imageLibrary.marangu,
     overview: "A Kilimanjaro foothills day combining waterfall walks, local history, caves, and village hospitality.",
     itinerary: ["Pickup from Moshi", "Marangu village visit", "Waterfall walk", "Chagga caves and history", "Local lunch", "Return"],
     included: dayTripIncluded,
@@ -552,7 +558,7 @@ export const destinations = [
   {
     slug: "lake-manyara",
     title: "Lake Manyara",
-    image: imageLibrary.safari,
+    image: imageLibrary.lakemanyara,
     overview: "A compact park at the base of the escarpment, with groundwater forest, lake views, birds, monkeys, and easy access from Arusha.",
     bestTime: "June to October for easier game viewing, November to May for birdlife and green scenery.",
     whyVisit: ["Forest and lake contrast", "Birding", "Short transfer", "Good family pacing"],
@@ -561,7 +567,7 @@ export const destinations = [
   {
     slug: "arusha-national-park",
     title: "Arusha National Park",
-    image: imageLibrary.coffee,
+    image: imageLibrary.arusha,
     overview: "A beautiful day safari park close to Arusha, combining forest, lakes, Mount Meru views, and optional walking safari.",
     bestTime: "Year round, with clear mountain views often in the dry season.",
     whyVisit: ["Close to Arusha", "Walking safari option", "Giraffe and colobus monkeys", "Mount Meru scenery"],
@@ -579,7 +585,7 @@ export const destinations = [
   {
     slug: "materuni-waterfalls",
     title: "Materuni Waterfalls",
-    image: imageLibrary.waterfall,
+    image: imageLibrary.materuni,
     overview: "A green village setting on the slopes of Kilimanjaro, combining waterfall trails, coffee culture, and Chagga hospitality.",
     bestTime: "Year round, with stronger water flow after rains.",
     whyVisit: ["Waterfall walk", "Coffee experience", "Village lunch", "Easy Moshi day"],
@@ -588,7 +594,7 @@ export const destinations = [
   {
     slug: "chemka-hot-springs",
     title: "Chemka Hot Springs",
-    image: imageLibrary.hotSprings,
+    image: imageLibrary.chemka,
     overview: "A relaxing natural spring day with blue water, shade, and a gentle rhythm that fits well before or after bigger adventures.",
     bestTime: "Year round, especially pleasant after a climb.",
     whyVisit: ["Swim time", "Recovery day", "Short transfer from Moshi", "Relaxed picnic mood"],
@@ -796,7 +802,7 @@ export const serviceCards = [
   {
     title: "Day Trips",
     text: "Waterfalls, coffee culture, hot springs, national parks, and local experiences built around real free days.",
-    image: imageLibrary.waterfall,
+    image: imageLibrary.materuni,
     href: "day-trips.html",
     cta: "Discover Day Trips"
   }
