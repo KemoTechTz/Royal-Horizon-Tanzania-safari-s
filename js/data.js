@@ -75,7 +75,7 @@ export const heroSlides = [
   {
     title: "Direct Bookings. Transparent Prices. Real Adventure.",
     text: "Transparent pricing does not mean cheap. It means you understand what you are paying for, who is supporting you, and how your trip is handled.",
-    image: imageLibrary.camp,
+    image: imageLibrary.camping,
     primary: { label: "Start Booking", href: "booking.html" },
     secondary: { label: "Why Trust Us", href: "reasons-to-trust-us.html" }
   },
