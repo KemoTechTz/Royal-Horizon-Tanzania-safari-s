@@ -46,7 +46,7 @@ export const imageLibrary = {
   lion: "/assets/images/lion.png",
   elephant: "/assets/images/elephant.png",
   travellers: "/assets/images/travellers.png",
-  camp: "/assets/images/camping.png",
+  camping: "/assets/images/camping.png",
   zanzibar: "/assets/images/zanzibar.png",
   waterfall: "/assets/images/waterfall.png",
   hotSprings: "/assets/images/hotSprings.png",
