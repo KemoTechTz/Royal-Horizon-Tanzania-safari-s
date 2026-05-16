@@ -32,7 +32,7 @@ export function renderPaymentPage(root) {
         title: "Open a Simulated Payment Page",
         text: "Enter a booking reference from your confirmation page to review payment options.",
         image: imageLibrary.lodge,
-        primary: { label: "Client Portal", href: "client-portal.html" },
+        primary: { label: "Start Booking", href: "booking.html" },
         secondary: { label: "Book First", href: "booking.html" },
         compact: true
       })}
@@ -57,11 +57,11 @@ export function renderPaymentPage(root) {
   root.innerHTML = `
     ${renderHero({
       eyebrow: "Payment",
-      title: "Simulated Payment Portal",
+      title: "Payment Simulation for Demo Review Only",
       text: "Review deposit, balance, and payment status. This preview does not collect card or bank details.",
       image: imageLibrary.lodge,
       primary: { label: "Download Invoice", href: "#invoice" },
-      secondary: { label: "Client Portal", href: "client-portal.html" },
+      secondary: { label: "Talk to an Expert", href: "connect-expert.html" },
       compact: true
     })}
     <section class="section-pad">

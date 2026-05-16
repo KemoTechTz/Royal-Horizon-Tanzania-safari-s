@@ -107,8 +107,8 @@ export function renderNavbar() {
               <div class="dropdown-content z-[90] mt-2 w-72 rounded-2xl border border-royalGreen/10 bg-ivory p-4 text-charcoal shadow-premium">
                 <p class="text-xs font-bold uppercase tracking-[0.16em] text-savannah">Main</p>
                 <div class="mt-2 grid gap-1 text-sm font-semibold"><a href="about.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">About</a><a href="contact.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Contact</a></div>
-                <p class="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-savannah">Portals</p>
-                <div class="mt-2 grid gap-1 text-sm font-semibold"><a href="client-portal.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Client Portal</a><a href="admin.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Admin Dashboard</a></div>
+                <p class="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-savannah">Explore</p>
+                <div class="mt-2 grid gap-1 text-sm font-semibold"><a href="kilimanjaro.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Kilimanjaro</a><a href="safaris.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Safaris</a><a href="day-trips.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Day Trips</a><a href="destinations.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Destinations</a><a href="blog.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Blogs</a><a href="summit-readiness.html" class="rounded-lg px-2 py-1.5 hover:bg-warmSand hover:text-royalGreen">Summit Readiness Check</a></div>
                 <p class="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-savannah">Settings</p>
                 <div class="mt-2 grid gap-2"><select class="form-select" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><select class="form-select" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div>
                 <p class="mt-3 text-xs font-bold uppercase tracking-[0.16em] text-savannah">Resources</p>
@@ -124,7 +124,7 @@ export function renderNavbar() {
   <aside id="mobile-drawer" class="fixed right-0 top-0 z-[70] hidden h-full w-[86%] max-w-sm overflow-y-auto custom-scrollbar bg-royalGreen px-5 pb-8 pt-5 text-ivory shadow-premium lg:hidden">
     <div class="flex items-center justify-between border-b border-white/15 pb-4"><p class="text-lg font-semibold">Royal Horizon</p><button id="mobile-menu-close" class="btn btn-ghost btn-sm text-ivory" aria-label="Close navigation menu">✕</button></div>
     <nav class="mt-5 grid gap-1 font-ui text-lg font-semibold">
-      ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Book Now','booking.html'],['Client Portal','client-portal.html'],['Admin','admin.html'],['Booking Policy','booking-policy.html'],['Payment Policy','payment-policy.html'],['Refund Policy','refund-policy.html'],['Privacy Policy','privacy-policy.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
+      ${[['Home','index.html'],['Kilimanjaro','kilimanjaro.html'],['Safaris','safaris.html'],['Day Trips','day-trips.html'],['Destinations','destinations.html'],['Blogs','blog.html'],['About','about.html'],['Contact','contact.html'],['Connect Expert','connect-expert.html'],['Summit Readiness','summit-readiness.html'],['Book Now','booking.html'],['Booking Policy','booking-policy.html'],['Payment Policy','payment-policy.html'],['Refund Policy','refund-policy.html'],['Privacy Policy','privacy-policy.html']].map(([n,h])=>`<a href="${h}" class="mobile-nav-link rounded-xl px-3 py-3 hover:bg-white/10">${n}</a>`).join('')}
       <details class="mt-1 rounded-xl border border-white/15 px-3 py-2"><summary class="cursor-pointer text-base font-semibold">Services</summary><div class="mt-2 grid gap-2 text-base"><a href="kilimanjaro.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Climb Kilimanjaro</a><a href="safaris.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Tanzania Safaris</a><a href="reasons-to-trust-us.html#signature-experience" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Signature Royal Experience</a><a href="day-trips.html" class="mobile-nav-link rounded-lg px-2 py-2 hover:bg-white/10">Day Trips</a></div></details>
     </nav>
     <div class="mt-6 grid gap-3 rounded-2xl border border-white/15 p-4"><select class="select border-white/20 bg-royalGreen text-ivory" data-currency-switch aria-label="Currency">${Object.keys(EXCHANGE_RATES).map((code) => `<option value="${code}" ${code === currency ? "selected" : ""}>${code}</option>`).join("")}</select><select class="select border-white/20 bg-royalGreen text-ivory" data-language-switch aria-label="Language">${LANGUAGES.map((item) => `<option value="${item.code}" ${item.code === language ? "selected" : ""}>${item.label}</option>`).join("")}</select></div>
@@ -161,13 +161,11 @@ export function renderFooter() {
   const target = document.getElementById("site-footer");
   if (!target) return;
   target.innerHTML = `
-    <section class="bg-warmSand/35 py-14">
+    <section class="bg-warmSand/30 py-16 md:py-20 lg:py-24">
       <div class="container-pad text-center">
-        <p class="eyebrow">Trusted Travel Standards</p>
-        <h2 class="mt-3 text-3xl font-bold text-royalGreen md:text-4xl">Trusted, Responsible & Locally Connected</h2>
-        <p class="mx-auto mt-4 max-w-4xl text-charcoal/75">Royal Horizon Tours is built around responsible travel, transparent planning, and trusted Tanzania expertise. Our partnerships, review presence, and tourism values help every guest travel with more confidence.</p>
-        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          ${[["APTA","Tourism Network","assets/images/badges/apta-badge.svg","APTA tourism network badge"],["TripAdvisor","Guest Reviews","assets/images/badges/tripadvisor-badge.svg","TripAdvisor guest review badge"],["Leave No Trace","Responsible Travel","assets/images/badges/leave-no-trace-badge.svg","Leave No Trace responsible travel partner badge"],["Tanzania Tourist Board","Tanzania Tourism","assets/images/badges/tanzania-tourist-board-badge.svg","Tanzania Tourist Board tourism badge"]].map(([name,label,src,alt])=>`<article class="rounded-2xl border border-royalGreen/10 bg-ivory p-5 shadow-soft"><img src="${src}" alt="${alt}" class="mx-auto h-16 w-full object-contain" loading="lazy" /><h3 class="mt-3 text-base font-bold text-royalGreen">${name}</h3><p class="text-sm text-charcoal/70">${label}</p></article>`).join("")}
+        <h2 class="text-2xl font-bold text-royalGreen md:text-3xl">Trusted Travel Standards</h2>
+        <div class="mx-auto mt-10 grid max-w-5xl grid-cols-1 place-items-center gap-y-10 sm:grid-cols-2 sm:gap-x-12 md:gap-y-12 lg:grid-cols-4 lg:gap-x-14">
+          ${[["assets/images/badges/apta-badge.svg","APTA logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"],["assets/images/badges/tripadvisor-badge.svg","TripAdvisor logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"],["assets/images/badges/leave-no-trace-badge.svg","Leave No Trace logo","h-12 md:h-14 lg:h-16 max-w-[145px] md:max-w-[165px] lg:max-w-[185px]"],["assets/images/badges/tanzania-tourist-board-badge.svg","Tanzania Tourist Board logo","h-12 md:h-14 lg:h-16 max-w-[150px] md:max-w-[170px] lg:max-w-[190px]"]].map(([src,alt,size])=>`<img src="${src}" alt="${alt}" class="w-auto object-contain ${size} opacity-85 transition duration-300 ease-out hover:scale-[1.03] hover:opacity-100" loading="lazy" />`).join("")}
         </div>
       </div>
     </section>
@@ -203,9 +201,9 @@ export function renderFooter() {
           <div class="mt-4 grid gap-2 text-sm text-ivory/76">
             <a href="connect-expert.html" class="hover:text-royalGold">Schedule Expert Call</a>
             <a href="booking.html" class="hover:text-royalGold">Booking Form</a>
-            <a href="payment.html" class="hover:text-royalGold">Payment Portal</a>
-            <a href="client-portal.html" class="hover:text-royalGold">Client Portal</a>
-            <a href="admin.html" class="hover:text-royalGold">Admin Portal</a>
+            <a href="payment.html" class="hover:text-royalGold">Payment Simulation</a>
+            <a href="summit-readiness.html" class="hover:text-royalGold">Summit Readiness Check</a>
+            <a href="contact.html" class="hover:text-royalGold">Contact Royal Horizon</a>
           </div>
         </div>
         <div>
@@ -237,6 +235,7 @@ export function renderStickyCtas() {
       <a href="connect-expert.html" class="btn-royal shadow-premium">Plan My Adventure</a>
       <a href="booking.html" class="btn bg-royalGreen text-ivory shadow-premium hover:bg-charcoal">Book Now</a>
       <a href="connect-expert.html#expert-call" class="btn border-royalGold bg-ivory text-royalGreen shadow-premium hover:bg-warmSand">Talk to an Expert</a>
+      <a href="summit-readiness.html" class="btn border-royalGold bg-ivory text-royalGreen shadow-premium hover:bg-warmSand">Check Readiness</a>
     </div>
     <div class="sticky-bottom-safe fixed inset-x-0 bottom-0 z-40 grid grid-cols-3 border-t border-royalGreen/10 bg-ivory p-2 shadow-premium lg:hidden">
       <a href="connect-expert.html" class="btn btn-sm bg-royalGreen text-ivory">Plan</a>

@@ -267,17 +267,17 @@ export function renderBookingSuccessPage(root) {
   const payment = findItem(STORAGE_KEYS.payments, ref);
   setPageTitle("Booking Success");
   if (!booking) {
-    root.innerHTML = renderEmptyState("Booking reference not found", "Check your reference or open the client portal to look up your trip.", "client-portal.html", "Open Client Portal");
+    root.innerHTML = renderEmptyState("Booking reference not found", "Check your reference and booking email, or contact Royal Horizon for support.", "contact.html", "Contact Royal Horizon");
     return;
   }
   root.innerHTML = `
     ${renderHero({
       eyebrow: "Booking received",
       title: "Your Royal Horizon Reference Is Ready",
-      text: "Keep this reference for payment, client portal access, and preparation forms.",
+      text: "Your booking request has been received. Our team will review your details and contact you with the next steps.",
       image: imageLibrary.travellers,
       primary: { label: "Go to Payment", href: `payment.html?ref=${booking.reference}` },
-      secondary: { label: "Open Client Portal", href: "client-portal.html" },
+      secondary: { label: "Talk to an Expert", href: "connect-expert.html" },
       compact: true
     })}
     <section class="section-pad">
@@ -293,10 +293,10 @@ export function renderBookingSuccessPage(root) {
             <p><strong>Payment status:</strong> ${renderStatusBadge(booking.paymentStatus)}</p>
           </div>
           <div class="mt-7 grid gap-3 sm:grid-cols-2">
-            <button class="btn-outline-royal" id="download-invoice">Download Invoice</button>
-            <a class="btn-royal" href="payment.html?ref=${booking.reference}">Go to Payment</a>
-            <a class="btn-outline-royal" href="client-portal.html">Open Client Portal</a>
-            <a class="btn-outline-royal" href="index.html">Back to Home</a>
+            <button class="btn-outline-royal" id="download-invoice">Download Booking Summary</button>
+            <a class="btn-royal" href="connect-expert.html">Talk to an Expert</a>
+            <a class="btn-outline-royal" href="index.html">Return Home</a>
+            <a class="btn-outline-royal" href="destinations.html">Explore More Trips</a>
           </div>
         </div>
         <div>${renderInvoicePreview(booking, payment)}</div>
