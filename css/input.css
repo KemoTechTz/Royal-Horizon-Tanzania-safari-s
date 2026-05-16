@@ -156,7 +156,7 @@
   }
 }
 
-
+}
 @layer components {
   .hero-shell { @apply relative overflow-hidden bg-royalGreen text-ivory; }
   .hero-media { @apply absolute inset-0 h-full w-full object-cover; }
