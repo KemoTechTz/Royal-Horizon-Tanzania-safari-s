@@ -110,7 +110,7 @@ function renderHome(root) {
 
     <section class="section-pad bg-warmSand/35">
       <div class="container-pad">
-        ${sectionHeader("Why Royal Horizon", "The Right Match for Serious Tanzania Travellers", "Premium travel is not about making everything look expensive. It is about making every handoff clear, every support team accountable, and every guest properly prepared.")}
+        ${sectionHeader("Why Royal Horizon", "The Right Match for Travellers", "Premium travel is not about making everything look expensive. It is about making every handoff clear, every support team accountable, and every guest properly prepared.")}
         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           ${[
             "Group and private bookings",
@@ -171,7 +171,7 @@ function renderHome(root) {
         ${sectionHeader("Expert Assistance", "Plan With a Human Who Knows Tanzania", "Use the quick call scheduler or send a fuller planner enquiry. Both appear in the operations dashboard.")}
         <div class="grid gap-6 md:grid-cols-2">
           <a href="connect-expert.html#expert-call" class="premium-card block p-8"><h3 class="font-heading text-4xl font-bold text-royalGreen">Schedule a WhatsApp Call</h3><p class="mt-4 leading-7 text-charcoal/70">Pick a date, time, and interest so our team can prepare useful route or safari advice before speaking with you.</p><span class="btn-royal mt-6">Schedule Call</span></a>
-          <a href="connect-expert.html#adventure-planner" class="premium-card block p-8"><h3 class="font-heading text-4xl font-bold text-royalGreen">Use Simple Adventure Planner</h3><p class="mt-4 leading-7 text-charcoal/70">Tell us your travel style, budget, dates, and wish list so we can shape a practical Tanzania plan.</p><span class="btn-royal mt-6">Start Planner</span></a>
+          <a href="connect-expert.html#adventure-planner" class="premium-card block p-8"><h3 class="font-heading text-4xl font-bold text-royalGreen">Adventure Planner</h3><p class="mt-4 leading-7 text-charcoal/70">Tell us your travel style, budget, dates, and wish list so we can shape a practical Tanzania plan.</p><span class="btn-royal mt-6">Start Planner</span></a>
         </div>
       </div>
     </section>
