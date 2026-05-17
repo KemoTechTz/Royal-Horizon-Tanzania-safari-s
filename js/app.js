@@ -168,7 +168,7 @@ function renderHome(root) {
 
     <section class="section-pad bg-warmSand/40">
       <div class="container-pad">
-        ${sectionHeader("Expert Assistance", "Plan With a Human Who Knows Tanzania", "Use the quick call scheduler or send a fuller planner enquiry. Both appear in the operations dashboard.")}
+        ${sectionHeader("Expert Assistance", "Plan With a Human Who Knows Tanzania", "Use the quick call scheduler or send a fuller planner enquiry. Both are reviewed directly by our planning team.")}
         <div class="grid gap-6 md:grid-cols-2">
           <a href="connect-expert.html#expert-call" class="premium-card block p-8"><h3 class="font-heading text-4xl font-bold text-royalGreen">Schedule a WhatsApp Call</h3><p class="mt-4 leading-7 text-charcoal/70">Pick a date, time, and interest so our team can prepare useful route or safari advice before speaking with you.</p><span class="btn-royal mt-6">Schedule Call</span></a>
           <a href="connect-expert.html#adventure-planner" class="premium-card block p-8"><h3 class="font-heading text-4xl font-bold text-royalGreen">Adventure Planner</h3><p class="mt-4 leading-7 text-charcoal/70">Tell us your travel style, budget, dates, and wish list so we can shape a practical Tanzania plan.</p><span class="btn-royal mt-6">Start Planner</span></a>
@@ -590,7 +590,7 @@ function setupReadinessCheck() {
 function renderConnectExpert(root) {
   setPageTitle("Connect to Expert");
   root.innerHTML = `
-    ${renderHero({ eyebrow: "Expert Assistance", title: "Speak With a Local Tanzania Planner", text: "Schedule a WhatsApp call or send a fuller adventure planner enquiry. Both go straight into the Royal Horizon operations dashboard.", image: imageLibrary.travellers, primary: { label: "Schedule Call", href: "#expert-call" }, secondary: { label: "Adventure Planner", href: "#adventure-planner" }, compact: true })}
+    ${renderHero({ eyebrow: "Expert Assistance", title: "Speak With a Local Tanzania Planner", text: "Schedule a WhatsApp call or send a fuller adventure planner enquiry. Both go directly to the Royal Horizon planning team.", image: imageLibrary.travellers, primary: { label: "Schedule Call", href: "#expert-call" }, secondary: { label: "Adventure Planner", href: "#adventure-planner" }, compact: true })}
     <section class="section-pad"><div class="container-pad grid gap-8 lg:grid-cols-2">
       <form id="expert-call-form" class="rounded-3xl border border-royalGreen/10 bg-warmSand/50 p-7 shadow-soft">
         <p class="eyebrow" id="expert-call">WhatsApp Call</p><h2 class="mt-3 font-heading text-4xl font-bold text-royalGreen">Schedule a WhatsApp Call</h2>
